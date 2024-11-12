@@ -1,0 +1,144 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Title -->
+    <title> | Personal Portfolio</title>
+
+    <!-- Font-Awesome CSS -->
+    <link rel="stylesheet" href="~/vendors/font-awesome/css/all.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <!-- Swiper CSS -->
+    <link rel="stylesheet" href="~/vendors/swiper/swiper.css" />
+
+    <!-- Magnific-Popup CSS -->
+    <link rel="stylesheet" href="~/vendors/magnific-popup/magnific-popup.css" />
+
+    <!-- Custom Stylesheets -->
+    <link rel="stylesheet" href="~/css/main.css" />
+    <link rel="stylesheet" href="~/css/submenu.css" />
+    <link rel="stylesheet" href="~/css/responsive.css" />
+</head>
+<body>
+    <header class="header">
+
+        <!-- Logo -->
+        <a class="logo" href="#home" style="display: flex; align-items: center; text-decoration: none;">
+            <img src="~/images/Home/Logo1.jpg" alt="About-Image"
+                 style="width: 50px; height: 50px; margin-right: 10px;">
+            <h2 style="margin: 0; font-size: 24px;">Móveis Prime</h2>
+        </a>
+
+        <!-- Logo End -->
+        <!-- Navbar -->
+        <nav class="navbar" style="display: flex; justify-content: center; align-items: center; flex-wrap: wrap;" />
+        <span style="display: flex; align-items: center; margin-right: 20px;">
+            <i class="fas fa-home fa-lg" aria-hidden="true"></i>
+            <a href="#home" style="margin-left: 10px;">Inicio</a>
+        </span>
+
+        <span style="display: flex; align-items: center; margin-right: 20px;">
+            <i class="fas fa-info-circle fa-lg" aria-hidden="true"></i>
+            <a href="#about" style="margin-left: 10px;">sobre</a>
+        </span>
+
+        <span style="display: flex; align-items: center; margin-right: 20px;">
+            <i class="fas fa-gavel fa-lg" aria-hidden="true"></i>
+            <a href="#service" style="margin-left: 10px;">Serviço</a>
+        </span>
+
+        <span style="display: flex; align-items: center; margin-right: 20px;">
+            <i class="fas fa-window-restore fa-lg" aria-hidden="true"></i>
+            <a href="#portfolio" style="margin-left: 10px;">Portfolio</a>
+        </span>
+
+        <span style="display: flex; align-items: center; margin-right: 20px;">
+            <i class="fa fa-users fa-lg" aria-hidden="true"></i>
+            <a href="#testimonial" style="margin-left: 10px;">Depoimento</a>
+        </span>
+
+        <span style="display: flex; align-items: center; margin-right: 20px;">
+            <i class="fa fa-file fa-lg" aria-hidden="true"></i>
+            <a href="#blog" style="margin-left: 10px;">Noticias</a>
+        </span>
+
+        <span style="display: flex; align-items: center; margin-right: 20px;">
+            <i class="fa fa-phone-square fa-lg" aria-hidden="true"></i>
+            <a href="#contact" style="margin-left: 10px;">Contato</a>
+        </span>
+
+        <div class="dropdown" style="position: relative; display: inline-block;">
+            <span style="display: flex; align-items: center; margin-right: 20px;">
+                <i class="fa fa-user" aria-hidden="true"></i>
+                <a href="/Usuario/Login" style="margin-left: 10px;">Login</a>
+            </span>
+            <div class="dropdown-content"
+                 style="display: none; position: absolute; background-color: #deeaea; width: 200px; box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2); z-index: 1; padding: 8px; border-radius: 3%;">
+                <a href="/Usuario/Index"
+                   style="color: black; padding: 7px; text-decoration: none; display: flex; align-items: center; margin: 5px;">
+                    <i class="fa fa-users" aria-hidden="true" style="margin-right: 8px;"></i>
+                    Usuarios
+                </a>
+                <a href="/Agendamento/Index"
+                   style="color: black; padding: 7px; text-decoration: none; display: flex; align-items: center; margin: 5px;">
+                    <i class="fa fa-calendar" aria-hidden="true" style="margin-right: 8px;"></i>
+                    Agendamento Admin
+                </a>
+                <a href="/Agendamento/Gerenciamento_Agendamento_Usuario"
+                   style="color: black; padding: 7px; text-decoration: none; display: flex; align-items: center; margin: 5px;">
+                    <i class="fa fa-calendar" aria-hidden="true" style="margin-right: 8px;"></i>
+                    Agendamento User
+                </a>
+                <a href="/Agendamento/Cadastro_Agendamento"
+                   style="color: black; padding: 7px; text-decoration: none; display: flex; align-items: center; margin: 5px;">
+                    <i class="fa fa-address-book" aria-hidden="true" style="margin-right: 8px"></i>
+                    Cadastro Agendamento
+                </a>
+                <a href="/Servico/Index"
+                   style="color: black; padding: 7px; text-decoration: none; display: flex; align-items: center; margin: 5px;">
+                    <i class="fa fa-address-book" aria-hidden="true" style="margin-right: 8px"></i>
+                    Serviço
+                </a>
+                <a href="#logout"
+                   style="color: black; padding: 7px; text-decoration: none; display: flex; align-items: center; margin: 5px;">
+                    <i class="fa fa-file" aria-hidden="true" style="margin-right: 8px"></i>
+                    Relatório
+                </a>
+            </div>
+        </div>
+       
+    </header>
+    <div>
+        <main>
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer class="border-top footer text-muted">
+        <div class="container">
+            &copy; 2024 - MoveisprimeVS - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+        </div>
+    </footer>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+
+    <!-- SWIPER JS -->
+    <script src="~/vendors/swiper/swiper.js"></script>
+
+    <!-- Magnific-Popup JS -->
+    <script src="~/vendors/magnific-popup/jquery.magnific-popup.js"></script>
+
+
+    <!-- Custom Script File -->
+    <script src="~/js/script.js"></script>
+    <script src="~/js/scroll-spy.js"></script>
+    <script src="~/js/counter-up.js"></script>
+    <script src="~/js/portfolio.js"></script>
+    <script src="~/js/testi-slider.js"></script>
+    <script src="~/js/blog-slider.js"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

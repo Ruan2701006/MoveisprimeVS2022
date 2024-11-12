@@ -1,0 +1,240 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout_Gerenciamento.cshtml";
+}
+
+<body style="background-color: #deeaea;">
+
+    <header class="container">
+        <h1 class="section-title">
+            <a href="index.html">
+                <img src="~/images/Home/Logo1.jpg" alt="About-Image"
+                     style="width: 100px; height: 100px; ">
+            </a>
+        </h1>
+    </header>
+
+    <section class="maneger-page-section">
+        <div class="container page-maneger" style="background-color: white;">
+
+            <div class="add-user-button">
+                <h1 class="section-title cliente-title-maneger">Gerenciamento de Serviços</h1>
+                <br />
+            </div>
+
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="input-group mb-4">
+                            <input id="filtro" type="text" class="form-control" placeholder="Pesquisar Produtos..."
+                                   aria-label="Filtrar" aria-describedby="basic-addon2">
+                        </div>
+                    </div>
+                    <div class="col-md-6 text-md-end">
+                        <!-- Alteração para "text-md-end" para alinhar à direita apenas em telas médias e maiores -->
+                        <button class="btn btn-success btn-lg" onclick="" data-bs-toggle="modal"
+                                data-bs-target="#InserirUsuario">
+                            <i class="fa fa-plus"></i> Adicionar Cliente
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="table-container table-responsive">
+                <table id="TbClientes" class="table">
+                    <colgroup>
+                        <col class="tc-nome">
+                    </colgroup>
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>nome do servico</th>
+                            <th>valor do servico</th>
+
+                            <th class="editar">Editar</th>
+                            <th class="excluir">Excluir</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                        <tr id="Id">
+                            <td>id</td>
+                            <td>nome do servico</td>
+                            <td>Valor do servico</td>
+                            <td>
+                                <button class="btn btn-default"
+                                        onclick="definirEdt('Id', 'Nome', 'Email','Senha', 'TipoUsuario','Telefone')"
+                                        data-bs-toggle="modal" data-bs-target="#EditarUsuario">
+                                    <i class="fa fa-edit"></i>
+                                </button>
+                            </td>
+                            <td>
+                                <button class="btn btn-default"
+                                        onclick="definirExc('Id', 'Nome', 'Email', 'Telefone')"
+                                        data-bs-toggle="modal" data-bs-target="#ExcluirUsuario">
+                                    <i class="fa fa-trash text-danger"></i>
+                                </button>
+                            </td>
+                        </tr>
+
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+
+        <div class="modal fade" id="EditarUsuario" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header" style="background-color: #deeaea; color: white; border-color: #648d78;">
+                        <h1 class="modal-title" id="exampleModalLabel">Editar Usuário</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form>
+                            <p style="color:rgb(223, 15, 15)">Campos com * vermelho são obrigatórios</p>
+                            <div class="mb-3 row">
+                                <div class="col-md-6">
+                                    <input id="EditNome" type="text" class="form-control"
+                                           placeholder="Digite o nome do serviço">
+                                </div>
+                                <div class="col-md-6">
+                                    <label style="color:red">*</label>
+                                </div>
+                            </div>
+
+                            <div class="mb-3 row">
+                                <div class="col-md-6">
+                                    <input id="EditSenha" type="text" class="form-control"
+                                           placeholder="Digite o valor do serviço">
+                                </div>
+                                <div class="col-md-6">
+                                    <label style="color:red">*</label>
+                                </div>
+                            </div>
+
+
+                            <input type="hidden" id="IdEdt" value="" />
+
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                        <button type="button" class="btn btn-primary" onclick=" AlterarUsuario()">Salvar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal fade" id="ExcluirUsuario" tabindex="-1" aria-labelledby="exampleModalLabel"
+             aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header" style="background-color: #deeaea; color: white; border-color: #648d78;">
+                        <h1 class="modal-title" id="exampleModalLabel">Excluir Usuário</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form>
+                            <div class="mb-3">
+                                <label for="nome">Nome do serviço</label>
+                                <input type="text" id="ExcNome" class="form-control" placeholder="Digite o nome do serviço..."
+                                       readonly>
+
+                            </div>
+                            <div class="mb-3">
+                                <label for="email">Valor do serviço</label>
+                                <input type="email" id="ExcEmail" class="form-control" placeholder="Digite o valor do serviço..."
+                                       readonly>
+
+                            </div>
+
+                            <input type="hidden" id="IdExc" class="form-control" placeholder="Digite seu nome..."
+                                   readonly>
+
+                        </form>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                            <button type="button" onclick="ExcluirUsuario()" class="btn btn-primary">Excluir</button>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="modal fade" id="InserirUsuario" tabindex="-1" aria-labelledby="exampleModalLabel"
+             aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+
+                    <div class="modal-header" style="background-color: #deeaea; color: white; border-color: #648d78;">
+                        <h1 class="modal-title" id="exampleModalLabel">Adicionar Cliente</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+
+                    <div class="modal-body">
+                        <form>
+                            <p style="color:red">Campos com * vermelho são obrigatórios</p>
+                            <div class="mb-3 row">
+                                <div class="col-md-6">
+                                    <input id="Nome" type="text" class="form-control"
+                                           placeholder="Digite o nome do serviço">
+                                </div>
+                                <div class="col-md-6">
+                                    <label style="color:red">*</label>
+                                </div>
+                            </div>
+
+                            <div class="mb-3 row">
+                                <div class="col-md-6">
+                                    <input id="Senha" type="text" class="form-control" placeholder="Digite o valor do serviço">
+                                </div>
+                                <div class="col-md-6">
+                                    <label style="color:red">*</label>
+                                </div>
+                            </div>
+
+                            <input type="hidden" id="IdEdt" value="" />
+
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                        <button type="button" class="btn btn-primary"
+                                onclick="InserirUsuario()">
+                            Adicionar
+                        </button><!--onclick para chamar a funcao de alteração-->
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+
+        <script src="~/lib/swiper/swiper-bundle.min.js"></script>
+
+        <script src="~/lib/jquery/dist/jquery.min.js"></script>
+
+        <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+
+
+    </section>
+
+    <!--Butao Voltar-->
+
+    <section class="container text-center">
+        <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+            <div>
+                <button type="button" id="send-button2" class="nav-link active btn btn-success btn-block"
+                        style="flex: 1; margin-left: 5px;" onclick="window.location.href = '/Home/Index';">
+                    Voltar
+                </button>
+            </div>
+        </div>
+    </section>
+
+
+</body>
+

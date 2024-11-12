@@ -1,0 +1,157 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\Aluno Noite\\Downloads\\Ruan-Website\\MoveisprimeVS2022\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{B5A0BD73-ED8F-4D7D-B3F8-3C5EAE2649FE}|MoveisprimeVS.csproj|c:\\users\\aluno noite\\downloads\\ruan-website\\moveisprimevs2022\\views\\usuario\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{B5A0BD73-ED8F-4D7D-B3F8-3C5EAE2649FE}|MoveisprimeVS.csproj|solutionrelative:views\\usuario\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B5A0BD73-ED8F-4D7D-B3F8-3C5EAE2649FE}|MoveisprimeVS.csproj|c:\\users\\aluno noite\\downloads\\ruan-website\\moveisprimevs2022\\orm\\viewbdmoveisprime.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B5A0BD73-ED8F-4D7D-B3F8-3C5EAE2649FE}|MoveisprimeVS.csproj|solutionrelative:orm\\viewbdmoveisprime.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B5A0BD73-ED8F-4D7D-B3F8-3C5EAE2649FE}|MoveisprimeVS.csproj|c:\\users\\aluno noite\\downloads\\ruan-website\\moveisprimevs2022\\orm\\tbusuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B5A0BD73-ED8F-4D7D-B3F8-3C5EAE2649FE}|MoveisprimeVS.csproj|solutionrelative:orm\\tbusuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B5A0BD73-ED8F-4D7D-B3F8-3C5EAE2649FE}|MoveisprimeVS.csproj|c:\\users\\aluno noite\\downloads\\ruan-website\\moveisprimevs2022\\orm\\tbservico.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B5A0BD73-ED8F-4D7D-B3F8-3C5EAE2649FE}|MoveisprimeVS.csproj|solutionrelative:orm\\tbservico.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B5A0BD73-ED8F-4D7D-B3F8-3C5EAE2649FE}|MoveisprimeVS.csproj|c:\\users\\aluno noite\\downloads\\ruan-website\\moveisprimevs2022\\orm\\tbatendimento.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B5A0BD73-ED8F-4D7D-B3F8-3C5EAE2649FE}|MoveisprimeVS.csproj|solutionrelative:orm\\tbatendimento.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B5A0BD73-ED8F-4D7D-B3F8-3C5EAE2649FE}|MoveisprimeVS.csproj|c:\\users\\aluno noite\\downloads\\ruan-website\\moveisprimevs2022\\orm\\bdmoveisprimecontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B5A0BD73-ED8F-4D7D-B3F8-3C5EAE2649FE}|MoveisprimeVS.csproj|solutionrelative:orm\\bdmoveisprimecontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B5A0BD73-ED8F-4D7D-B3F8-3C5EAE2649FE}|MoveisprimeVS.csproj|c:\\users\\aluno noite\\downloads\\ruan-website\\moveisprimevs2022\\repositorio\\usuarior.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B5A0BD73-ED8F-4D7D-B3F8-3C5EAE2649FE}|MoveisprimeVS.csproj|solutionrelative:repositorio\\usuarior.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B5A0BD73-ED8F-4D7D-B3F8-3C5EAE2649FE}|MoveisprimeVS.csproj|c:\\users\\aluno noite\\downloads\\ruan-website\\moveisprimevs2022\\controllers\\usuariocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B5A0BD73-ED8F-4D7D-B3F8-3C5EAE2649FE}|MoveisprimeVS.csproj|solutionrelative:controllers\\usuariocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 3,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:4:0:{e8034f19-ab72-4f06-83fd-f6832b41aa63}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "UsuarioController.cs",
+              "DocumentMoniker": "C:\\Users\\Aluno Noite\\Downloads\\Ruan-Website\\MoveisprimeVS2022\\Controllers\\UsuarioController.cs",
+              "RelativeDocumentMoniker": "Controllers\\UsuarioController.cs",
+              "ToolTip": "C:\\Users\\Aluno Noite\\Downloads\\Ruan-Website\\MoveisprimeVS2022\\Controllers\\UsuarioController.cs",
+              "RelativeToolTip": "Controllers\\UsuarioController.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAcAAAAXAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-11T19:57:51.847Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\Aluno Noite\\Downloads\\Ruan-Website\\MoveisprimeVS2022\\Views\\Usuario\\Index.cshtml",
+              "RelativeDocumentMoniker": "Views\\Usuario\\Index.cshtml",
+              "ToolTip": "C:\\Users\\Aluno Noite\\Downloads\\Ruan-Website\\MoveisprimeVS2022\\Views\\Usuario\\Index.cshtml",
+              "RelativeToolTip": "Views\\Usuario\\Index.cshtml",
+              "ViewState": "AQIAABcAAAAAAAAAAAAAAEcAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-11-11T19:51:46.645Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "ViewBdMoveisPrime.cs",
+              "DocumentMoniker": "C:\\Users\\Aluno Noite\\Downloads\\Ruan-Website\\MoveisprimeVS2022\\ORM\\ViewBdMoveisPrime.cs",
+              "RelativeDocumentMoniker": "ORM\\ViewBdMoveisPrime.cs",
+              "ToolTip": "C:\\Users\\Aluno Noite\\Downloads\\Ruan-Website\\MoveisprimeVS2022\\ORM\\ViewBdMoveisPrime.cs",
+              "RelativeToolTip": "ORM\\ViewBdMoveisPrime.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAMAAAAbAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-11T18:48:53.136Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "TbUsuario.cs",
+              "DocumentMoniker": "C:\\Users\\Aluno Noite\\Downloads\\Ruan-Website\\MoveisprimeVS2022\\ORM\\TbUsuario.cs",
+              "RelativeDocumentMoniker": "ORM\\TbUsuario.cs",
+              "ToolTip": "C:\\Users\\Aluno Noite\\Downloads\\Ruan-Website\\MoveisprimeVS2022\\ORM\\TbUsuario.cs",
+              "RelativeToolTip": "ORM\\TbUsuario.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAMAAAAbAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-11T18:48:48.242Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "TbServico.cs",
+              "DocumentMoniker": "C:\\Users\\Aluno Noite\\Downloads\\Ruan-Website\\MoveisprimeVS2022\\ORM\\TbServico.cs",
+              "RelativeDocumentMoniker": "ORM\\TbServico.cs",
+              "ToolTip": "C:\\Users\\Aluno Noite\\Downloads\\Ruan-Website\\MoveisprimeVS2022\\ORM\\TbServico.cs",
+              "RelativeToolTip": "ORM\\TbServico.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAMAAAAbAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-11T18:48:44.936Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "TbAtendimento.cs",
+              "DocumentMoniker": "C:\\Users\\Aluno Noite\\Downloads\\Ruan-Website\\MoveisprimeVS2022\\ORM\\TbAtendimento.cs",
+              "RelativeDocumentMoniker": "ORM\\TbAtendimento.cs",
+              "ToolTip": "C:\\Users\\Aluno Noite\\Downloads\\Ruan-Website\\MoveisprimeVS2022\\ORM\\TbAtendimento.cs",
+              "RelativeToolTip": "ORM\\TbAtendimento.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAMAAAAbAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-11T18:48:41.956Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "BdMoveisPrimeContext.cs",
+              "DocumentMoniker": "C:\\Users\\Aluno Noite\\Downloads\\Ruan-Website\\MoveisprimeVS2022\\ORM\\BdMoveisPrimeContext.cs",
+              "RelativeDocumentMoniker": "ORM\\BdMoveisPrimeContext.cs",
+              "ToolTip": "C:\\Users\\Aluno Noite\\Downloads\\Ruan-Website\\MoveisprimeVS2022\\ORM\\BdMoveisPrimeContext.cs",
+              "RelativeToolTip": "ORM\\BdMoveisPrimeContext.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAQAAAAbAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-11T18:48:29.532Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "UsuarioR.cs",
+              "DocumentMoniker": "C:\\Users\\Aluno Noite\\Downloads\\Ruan-Website\\MoveisprimeVS2022\\Repositorio\\UsuarioR.cs",
+              "RelativeDocumentMoniker": "Repositorio\\UsuarioR.cs",
+              "ToolTip": "C:\\Users\\Aluno Noite\\Downloads\\Ruan-Website\\MoveisprimeVS2022\\Repositorio\\UsuarioR.cs",
+              "RelativeToolTip": "Repositorio\\UsuarioR.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAACkAAAAMAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-11T18:39:18.139Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,125 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
+
+
+body{
+    background-color: #deeaea !important;
+}
+
+html {
+    min-height: 100vh;
+}
+main{
+    min-height: calc(100vh - 100px);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.bem-vindo{
+    color:#648d78 !important;
+    font-family: 'Roboto', cursive;
+    font-weight: 700;
+}
+
+a {
+    text-decoration: none !important;
+    color: #648d78 !important;
+}
+
+p {
+    color: #648d78 !important;
+}
+
+input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #648d78 imo !important;
+    border-radius: 50px;
+}
+
+input:focus, select:focus{
+    outline: 4px solid #648d78 !important;
+}
+select option:hover{
+    background-color:#deeaea !important;
+}
+
+/*--------------------------------------------------------------
+# Sections General
+--------------------------------------------------------------*/
+section {
+    padding: 3.5em 0 2em 0;
+    overflow: hidden;
+}
+
+.section-title {
+    text-align: center;
+    /* padding-bottom: 30px; */
+}
+
+.section-title h2 {
+    font-size: 32px;
+    font-weight: bold;
+    /* margin-bottom: 20px; */
+    padding-bottom: 20px;
+    position: relative;
+    color: #648d78 !important;
+}
+
+
+footer {
+    max-height: 85px;
+    padding-top: .8em;
+}
+
+
+.page-maneger{
+    background-color: #ffff !important;
+    margin-top: 2.5em;
+    border-radius: 8px;
+    box-shadow: 2px 0 10px -2px #648d78 !important;
+    height: 590px;
+    overflow: hidden;
+}
+.modal-header {
+    background-color: #deeaea !important;
+}
+.modal-footer {
+    background-color: #ffffff !important;
+}
+
+.modal-header h1 {
+    color: #648d78 !important;
+}
+
+.modal-body {
+    background-color: #ffffff !important;
+} 
+
+/*--------------------------------------------------------------
+# Butao voltar
+--------------------------------------------------------------*/
+
+button {
+    background-color: #deeaea !important;
+    border: none !important;
+    color: #648d78 !important;
+    transition: .5s;
+}
+
+button:hover {
+    background-color: #648d78 !important;
+    color: #deeaea !important;
+    border: 1px solid #648d78 !important;
+}
