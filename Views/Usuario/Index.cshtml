@@ -1,101 +1,75 @@
 ﻿@model IEnumerable<MoveisprimeVS.Models.UsuarioVM>
 
 @{
-    Layout = "~/Views/Shared/_Layout_gerenciamento.cshtml";
+    Layout = "~/Views/Shared/_Layout_Gerenciamento.cshtml";
 }
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
-
-    <link href="~/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
-    <link href="~/lib/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-    <link href="~/lib/swiper/swiper-bundle.min.css" rel="stylesheet">
-    <link href="~/lib/boxicons/css/boxicons.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="~/css/usuario_index.css">
-
-
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
-
-</head>
-
-<body style="background-color: #deeaea;">
-
-    <header class="container">
-        <h1 class="section-title">
-            <a href="/Home/Index">
-                <img src="~/images/Home/Logo1.jpg" alt="About-Image"
-                     style="width: 100px; height: 100px; ">
-            </a>
-        </h1>
-    </header>
+<body>
 
     <section class="maneger-page-section">
-        <div class="container page-maneger" style="background-color: white;">
+        <div class="container page-maneger">
 
             <div class="add-user-button">
+                <br>
                 <h1 class="section-title cliente-title-maneger">Gerenciamento de Usuários</h1>
-                <br />
+                <br>
             </div>
 
             <div class="container">
                 <div class="row">
                     <div class="col-md-6">
                         <div class="input-group mb-4">
-                            <input id="filtro" type="text" class="form-control" placeholder="Pesquisar Produtos..."
-                                   aria-label="Filtrar" aria-describedby="basic-addon2">
+                            <input id="filtro" type="text" class="form-control" placeholder="Pesquisar Produtos..." aria-label="Filtrar" aria-describedby="basic-addon2">
                         </div>
                     </div>
                     <div class="col-md-6 text-md-end">
                         <!-- Alteração para "text-md-end" para alinhar à direita apenas em telas médias e maiores -->
-                        <button class="btn btn-success btn-lg" onclick="" data-bs-toggle="modal"
-                                data-bs-target="#InserirUsuario">
+                        <button class="btn btn-danger btn-lg" onclick="" data-bs-toggle="modal" data-bs-target="#InserirUsuario">
                             <i class="fa fa-plus"></i> Adicionar Cliente
                         </button>
                     </div>
                 </div>
             </div>
 
-            <div class="table-container" style="max-height: 400px; overflow-y: auto;">
-                <div class="table-responsive">
-                    <table id="TbClientes" class="table" style="width: 100%; border-collapse: collapse;">
+        <div class="table-container" style="max-height: 400px; overflow-y: auto;">
+
+            <div class="table-responsive">
+                    <table id="TbClientes" class="table" style="width: 100%; border-collapse: collapse; table-layout: fixed;">
                         <!-- Cabeçalho fixo -->
-                        <thead style="top: 0; background-color: #648D78; color: #EAE7DC; z-index: 1;">
+                        <thead style="background-color: #648D78; color: #F7F5F2;">
                             <tr>
-                                <th style="border: 1px solid #ddd; padding: 8px; width: 57px">#</th>
-                                <th style="border: 1px solid #ddd; padding: 8px; width: 159px">Nome</th>
-                                <th style="border: 1px solid #ddd; padding: 8px; width: 169px">Senha</th>
-                                <th style="border: 1px solid #ddd; padding: 8px;width: 335px">Email</th>
-                                <th style="border: 1px solid #ddd; padding: 8px; width: 160px">Telefone</th>
-                                <th style="border: 1px solid #ddd; padding: 8px; width: 200px">Tipo de Usuário</th>
-                                <th class="editar" style="border: 1px solid #ddd; padding: 5px;">Editar</th>
-                                <th class="excluir" style="border: 1px solid #ddd; padding: 5px;">Excluir</th>
+                                <th style="color: #F7F5F2; border: 1px solid #ddd; padding: 8px; width: 50px; position: sticky; top: 0; background-color:#648D78; z-index: 2;">#</th>
+                                <th style="color: #F7F5F2; border: 1px solid #ddd; padding: 8px; width: 190px; position: sticky; top: 0; background-color: #648D78; z-index: 2;">Nome</th>
+                                <th style="color: #F7F5F2; border: 1px solid #ddd; padding: 8px; width: 230px; position: sticky; top: 0; background-color: #648D78; z-index: 2;">Senha</th>
+                                <th style="color: #F7F5F2; border: 1px solid #ddd; padding: 8px; width: 312px; position: sticky; top: 0; background-color: #648D78; z-index: 2;">Email</th>
+                                <th style="color: #F7F5F2; border: 1px solid #ddd; padding: 8px; width: 160px; position: sticky; top: 0; background-color: #648D78; z-index: 2;">Telefone</th>
+                                <th style="color: #F7F5F2; border: 1px solid #ddd; padding: 8px; width: 170px; position: sticky; top: 0; background-color: #648D78; z-index: 2;">Tipo de Usuário</th>
+                                <th class="editar" style="color: #F7F5F2; border: 1px solid #ddd; padding: 8px; position: sticky; top: 0; background-color: #648D78; z-index: 2;">Editar</th>
+                                <th class="excluir" style="color: #F7F5F2; border: 1px solid #ddd; padding: 8px; position: sticky; top: 0; background-color: #648D78; z-index: 2;">Excluir</th>
                             </tr>
                         </thead>
                     </table>
 
-                    <!-- Corpo da tabela com rolagem -->
-                    <div style="max-height: 300px; overflow-y: auto;">
-                        <table id="TbClientesBody" class="table" style="width: 100%; border-collapse: collapse;">
+                    <!-- Corpo da tabela rolável -->
+                    <div style="max-height: 300px; overflow-y: auto; overflow-x: hidden;">
+                        <table id="TbClientesBody" class="table" style="width: 100%; border-collapse: collapse; table-layout: fixed;">
                             <tbody>
                                 @foreach (var usuario in Model)
                                 {
                                     <tr>
-                                        <td style="color: #EAE7DC; border: 1px solid #ddd; padding: 8px;">@usuario.Id</td>
-                                        <td style="color: #EAE7DC; border: 1px solid #ddd; padding: 8px;">@usuario.Nome</td>
-                                        <td style="color: #EAE7DC; border: 1px solid #ddd; padding: 8px;">@usuario.Senha</td>
-                                        <td style="color: #EAE7DC; border: 1px solid #ddd; padding: 8px;">@usuario.Email</td>
-                                        <td style="color: #EAE7DC; border: 1px solid #ddd; padding: 8px;">@usuario.Telefone</td>
+                                        <td style="color: #ac0404; border: 1px solid #ddd; padding: 8px;width: 50px">@usuario.Id</td>
+                                        <td style="color: #ac0404; border: 1px solid #ddd; padding: 8px;width: 190px">@usuario.Nome</td>
+                                        <td style="color: #ac0404; border: 1px solid #ddd; padding: 8px; width: 230px">@usuario.Senha</td>
+                                        <td style="color: #ac0404; border: 1px solid #ddd; padding: 8px; width: 312px">@usuario.Email</td>
+                                        <td style="color: #ac0404; border: 1px solid #ddd; padding: 8px; width: 160px">@usuario.Telefone</td>
 
                                         @if (usuario.TipoUsuario == 1)
                                         {
-                                            <td style="color: #EAE7DC; border: 1px solid #ddd; padding: 8px;">Cliente</td>
+                                            <td style="color: #ac0404; border: 1px solid #ddd; padding: 8px; width: 170px">Cliente</td>
                                         }
                                         else
                                         {
-                                            <td style="color: #EAE7DC; border: 1px solid #ddd; padding: 8px;">Administrador</td>
+                                            <td style="color: #ac0404; border: 1px solid #ddd; padding: 8px; width: 170px">Administrador</td>
                                         }
 
                                         <td class="text-center" style="border: 1px solid #ddd;">
@@ -113,107 +87,114 @@
                             </tbody>
                         </table>
                     </div>
-                </div>
             </div>
-
         </div>
+
+
+            <!-- Contador de Registros Centralizado com Fonte Maior -->
+            <div style="text-align: center; color: black; margin-top: 10px;">
+                <strong style="font-size: 18px">Total de Usuários: <span id="registroCount">0</span></strong>
+            </div>
+        
 
         <div class="modal fade" id="EditarUsuario" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
-                    <div class="modal-header" style="background-color: #deeaea; color: white; border-color: #648d78;">
-                        <h1 class="modal-title" id="exampleModalLabel">Editar Usuário</h1>
+                    <div class="modal-header">
+                        <h2 class="modal-title" id="exampleModalLabel">Editar Cliente</h2>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
                         <form>
-                            <p style="color:rgb(223, 15, 15)">Campos com * vermelho são obrigatórios</p>
+                            <p style="color:#ac0404">Campos com * vermelho são obrigatórios</p>
                             <div class="mb-3 row">
                                 <div class="col-md-6">
-                                    <input id="EditNome" type="text" class="form-control"
-                                           placeholder="Digite o nome do cliente">
+                                    <input id="EdtNome" type="text" class="form-control" placeholder="Digite o nome do cliente">
                                 </div>
                                 <div class="col-md-6">
-                                    <label style="color:red">*</label>
+                                    <label>*</label>
                                 </div>
                             </div>
 
                             <div class="mb-3 row">
                                 <div class="col-md-6">
-                                    <input id="EditSenha" type="text" class="form-control"
-                                           placeholder="Digite o a senha">
+                                    <input id="EdtSenha" type="text" class="form-control" placeholder="Digite o a senha">
                                 </div>
                                 <div class="col-md-6">
-                                    <label style="color:red">*</label>
+                                    <label>*</label>
                                 </div>
                             </div>
 
                             <div class="mb-3 row">
                                 <div class="col-md-7">
-                                    <input id="EditEmail" type="email" class="form-control"
-                                           placeholder="Digite o email">
+                                    <input id="EdtEmail" type="email" class="form-control" placeholder="Digite o email">
                                 </div>
                                 <div class="col-md-5">
-                                    <label style="color:red">*</label>
+                                    <label>*</label>
                                 </div>
                             </div>
+
 
                             <div class="mb-3 row">
                                 <div class="col-md-6">
-                                    <input id="EditTel" type="text" class="form-control"
-                                           placeholder="Digite o telefone">
+                                    <input id="EdtTel" type="text" class="form-control" placeholder="Digite o telefone">
                                 </div>
                                 <div class="col-md-6">
-                                    <label style="color:red">*</label>
+                                    <label>*</label>
                                 </div>
                             </div>
-                            <input type="hidden" id="IdEdt" value="" />
+                            
 
+                                <div class="mb-3 row">
+                                    <div class="col-md-6">
+                                        @Html.DropDownList("EdtTipoUsuario", ViewBag.lstTipoUsuario as SelectList, "Escolha o tipo de Usuário", new { @class = "form-control", @style = "width:230px; background-color: #EAE7DC; color: #333;", required = "required" })
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label style="color:red">*</label>
+                                    </div>
+                                </div>
+
+                                <input type="hidden" id="EdtId" value="" />
                         </form>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
-                        <button type="button" class="btn btn-primary" onclick=" AlterarUsuario()">Salvar</button>
+                        <button type="button" class="btn btn-danger" onclick=" AtualizarUsuario()">Salvar</button>
                     </div>
                 </div>
             </div>
         </div>
 
-        <div class="modal fade" id="ExcluirUsuario" tabindex="-1" aria-labelledby="exampleModalLabel"
-             aria-hidden="true">
+        <div class="modal fade" id="ExcluirUsuario" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
-                    <div class="modal-header" style="background-color: #deeaea; color: white; border-color: #648d78;">
-                        <h1 class="modal-title" id="exampleModalLabel">Excluir Usuário</h1>
+                    <div class="modal-header">
+                        <h2 class="modal-title" id="exampleModalLabel">Excluir Cliente</h2>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
                         <form>
                             <div class="mb-3">
                                 <label for="nome">Nome</label>
-                                <input type="text" id="ExcNome" class="form-control" placeholder="Digite seu nome..."
-                                       readonly>
+                                    <input type="text" id="ExcNome" class="form-control" placeholder="Digite seu nome..." readonly style="background-color: #648D78;">
 
                             </div>
                             <div class="mb-3">
                                 <label for="email">Email</label>
-                                <input type="email" id="ExcEmail" class="form-control" placeholder="Digite seu email..."
-                                       readonly>
+                                    <input type="email" id="ExcEmail" class="form-control" placeholder="Digite seu email..." readonly style="background-color: #648D78;">
 
                             </div>
                             <div class="mb-3">
                                 <label for="telefone">Telefone</label>
-                                <input type="text" id="ExcTel" class="form-control" placeholder="Digite seu telefone..."
-                                       readonly>
+                                    <input type="text" id="ExcTel" class="form-control" placeholder="Digite seu telefone..." readonly style="background-color: #648D78;">
 
                             </div>
-                            <input type="hidden" id="IdExc" class="form-control" placeholder="Digite seu nome..."
-                                   readonly>
+                                <input type="hidden" id="IdExc" class="form-control" placeholder="Digite seu nome..." readonly style="background-color: #648D78;">
 
                         </form>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
-                            <button type="button" onclick="ExcluirUsuario()" class="btn btn-primary">Excluir</button>
+                            <button type="button" class="btn btn-danger" onclick="ExcluirUsuario()">Excluir</button>
                         </div>
 
                     </div>
@@ -222,26 +203,24 @@
             </div>
         </div>
 
-        <div class="modal fade" id="InserirUsuario" tabindex="-1" aria-labelledby="exampleModalLabel"
-             aria-hidden="true">
+        <div class="modal fade" id="InserirUsuario" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
 
-                    <div class="modal-header" style="background-color: #deeaea; color: white; border-color: #648d78;">
-                        <h1 class="modal-title" id="exampleModalLabel">Adicionar Cliente</h1>
+                    <div class="modal-header">
+                        <h2 class="modal-title" id="exampleModalLabel">Adicionar Cliente</h2>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
 
                     <div class="modal-body">
                         <form>
-                            <p style="color:red">Campos com * vermelho são obrigatórios</p>
+                            <p style="color: #ac0404">Campos com * vermelho são obrigatórios</p>
                             <div class="mb-3 row">
                                 <div class="col-md-6">
-                                    <input id="Nome" type="text" class="form-control"
-                                           placeholder="Digite o nome do cliente">
+                                    <input id="Nome" type="text" class="form-control" placeholder="Digite o nome do cliente">
                                 </div>
                                 <div class="col-md-6">
-                                    <label style="color:red">*</label>
+                                    <label>*</label>
                                 </div>
                             </div>
 
@@ -250,7 +229,7 @@
                                     <input id="Senha" type="text" class="form-control" placeholder="Digite o a senha">
                                 </div>
                                 <div class="col-md-6">
-                                    <label style="color:red">*</label>
+                                    <label>*</label>
                                 </div>
                             </div>
 
@@ -259,262 +238,263 @@
                                     <input id="Email" type="email" class="form-control" placeholder="Digite o email">
                                 </div>
                                 <div class="col-md-5">
-                                    <label style="color:red">*</label>
+                                    <label>*</label>
                                 </div>
-                            </div>
+                            </div> 
 
                             <div class="mb-3 row">
                                 <div class="col-md-6">
-                                    <input id="Telefone" type="text" class="form-control"
-                                           placeholder="Digite o telefone">
+                                    <input id="Telefone" type="text" class="form-control" placeholder="Digite o telefone">
                                 </div>
                                 <div class="col-md-6">
-                                    <label style="color:red">*</label>
+                                    <label>*</label>
                                 </div>
                             </div>
 
-                            <input type="hidden" id="IdEdt" value="" />
+                                <div class="mb-3 row">
+                                    <div class="col-md-6">
+                                        @Html.DropDownList("TipoUsuario", ViewBag.lstTipoUsuario as SelectList, "Escolha o tipo de Usuário", new { @class = "form-control", @style = "width:230px; background-color: #EAE7DC; color: #333;", required = "required" })
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label style="color:#648D78">*</label>
+                                    </div>
+                                </div>
+
+                            <input type="hidden" id="Id" value="" />
 
                         </form>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
-                        <button type="button" class="btn btn-primary"
-                                onclick="InserirUsuario()">
-                            Adicionar
-                        </button><!--onclick para chamar a funcao de alteração-->
+                        <button type="button" class="btn btn-primary" onclick="InserirUsuario()">Adicionar</button><!--onclick para chamar a funcao de alteração-->
                     </div>
                 </div>
             </div>
         </div>
 
+    </section>
+    
 
-        <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script src="~/lib/swiper/swiper-bundle.min.js"></script>
 
-        <script src="~/lib/swiper/swiper-bundle.min.js"></script>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
 
-        <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
 
-        <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-        <script>
+    <script>
 
-            function definirEdt(id, Nome, Email, Senha, TipoUsuario, Telefone) {
+        $(document).ready(function () {
+            // Função para atualizar o contador de registros visíveis
+            function atualizarContador() {
+                var visibleRows = $('#TbClientesBody tbody tr:visible').length; // Conta as linhas visíveis
+                $('#registroCount').text(visibleRows); // Atualiza o contador
+            }
 
-                $('#IdEdt').val(id);
-                $('#EditNome').val(Nome);
+            // Quando o usuário digitar no campo de filtro
+            $('#filtro').on('keyup', function () {
+                var value = $(this).val().toLowerCase(); // Pega o valor do campo de filtro e converte para minúsculas
+
+                // Filtra as linhas do corpo da tabela
+                $('#TbClientesBody tbody tr').each(function () {
+                    // Verifica se qualquer célula na linha contém o valor digitado no filtro
+                    var rowText = $(this).text().toLowerCase();
+                    // Exibe ou oculta a linha, dependendo de conter o valor
+                    $(this).toggle(rowText.indexOf(value) > -1);
+                });
+
+                // Atualiza o contador após filtrar as linhas
+                atualizarContador();
+            });
+
+            // Inicializa o contador de registros ao carregar a página
+            atualizarContador();
+        });
+
+        function definirEdt(id, Nome, Email, Senha, TipoUsuario, Telefone) {
+
+            $('#EdtId').val(id);
+            $('#EdtNome').val(Nome);
+            $('#EdtSenha').val(Senha);
+            $('#EdtEmail').val(Email);
+            $('#EdtTel').val(Telefone);
+
+
+            var senhaValue = "";
+            if (Senha) {
                 $('#EditSenha').val(Senha);
-                $('#EditEmail').val(Email);
-                $('#EditTel').val(Telefone);
-
-
-                var senhaValue = "";
-                if (Senha) {
-                    $('#EditSenha').val(Senha);
-                    senhaValue = Senha;
-                }
-
-
-                if ($('#DropTipoUsuarioEdit').length > 0) {
-                    $('#DropTipoUsuarioEdit option').filter(function () {
-                        return $(this).val() === TipoUsuario;
-                    }).prop('selected', true);
-                    $('#DropTipoUsuarioEdit').trigger('chosen:updated');
-                } else {
-                    console.error("DropDownList não encontrado.");
-                }
+                senhaValue = Senha;
             }
 
-            function definirExc(id, Nome, Email, Telefone) {
-                $('#IdExc').val(id);
-                $('#ExcNome').val(Nome);
-                $('#ExcEmail').val(Email);
-                $('#ExcTel').val(Telefone)
+
+            if ($('#EdtTipoUsuario').length > 0) {
+                $('#EdtTipoUsuario option').filter(function () {
+                    return $(this).val() === TipoUsuario;
+                }).prop('selected', true);
+                $('#EdtTipoUsuario').trigger('chosen:updated');
+            } else {
+                console.error("DropDownList não encontrado.");
+            }
+        }
+
+        function definirExc(id, Nome, Email, Telefone) {
+
+            $('#ExcId').val(id);
+            $('#ExcNome').val(Nome);
+            $('#ExcEmail').val(Email);
+            $('#ExcTel').val(Telefone)
+        }
+
+        function InserirUsuario() {
+
+            var nome = $('#Nome').val();
+            var email = $('#Email').val();
+            var senha = $('#Senha').val();
+            var telefone = $('#Telefone').val();
+            var tipoUsuario = $('#TipoUsuario option:selected').val();
+
+            if (nome.trim() === "") {
+                alert("Por favor, preencha o campo Nome.");
+                return;
+            }
+            if (senha.trim() === "") {
+                alert("Por favor, preencha o campo Senha.");
+                return;
+            }
+            if (email.trim() === "") {
+                alert("Por favor, insira um email válido.");
+                return;
             }
 
-            function InserirUsuario() {
+            if (tipoUsuario === "Escolha o Tipo de Usuário") {
+                alert("Por favor, selecione o tipo de usuário.");
+                return;
+            }
 
-                var nome = $('#Nome').val();
-                var email = $('#Email').val();
-                var senha = $('#Senha').val();
-                var telefone = $('#Telefone').val();
-                var tipoUsuario = $('#DropTipoUsuario option:selected').val();
+            if (telefone.trim() === "") {
+                alert("Por favor, insira um número de telefone válido.");
+                return;
+            }
 
-                if (nome.trim() === "") {
-                    alert("Por favor, preencha o campo Nome.");
-                    return;
-                }
-                if (senha.trim() === "") {
-                    alert("Por favor, preencha o campo Senha.");
-                    return;
-                }
-                if (email.trim() === "") {
-                    alert("Por favor, insira um email válido.");
-                    return;
-                }
+            var dados = {
+                Nome: nome,
+                Email: email,
+                Senha: senha,
+                Telefone: telefone,
+                TipoUsuario: tipoUsuario
+            };
 
-                if (tipoUsuario === "Escolha o Tipo de Usuário") {
-                    alert("Por favor, selecione o tipo de usuário.");
-                    return;
-                }
-
-                if (telefone.trim() === "") {
-                    alert("Por favor, insira um número de telefone válido.");
-                    return;
-                }
-
-
-
-                var dados = {
-                    Nome: nome,
-                    Email: email,
-                    Senha: senha,
-                    Telefone: telefone,
-                    TipoUsuario: tipoUsuario
-                };
-
-                // Faça a chamada AJAX
-                $.ajax({
-                    url: '/Usuario/InserirUsuario',
-                    type: "POST",
-                    dataType: "json",
-                    data: dados,
-                    success: function (resultado) {
-                        if (resultado.success) {
-                            alert(resultado.message);  // Exibe a mensagem de sucesso
-                            // Fecha o modal
-                            $('#InserirUsuario').modal('hide');
-                            // Recarrega a págInserirUsuarioina
-                            location.reload();
-                        } else {
-                            alert(resultado.message);  // Exibe a mensagem de falha
-                        }
-                    },
-                    error: function () {
-                        alert('Erro na requisição AJAX.');
+            console.log(dados)
+            // Faça a chamada AJAX
+            $.ajax({
+                url: '/Usuario/InserirUsuario',
+                type: "POST",
+                dataType: "json",
+                data: dados,
+                success: function (resultado) {
+                    if (resultado.success) {
+                        alert(resultado.message);  // Exibe a mensagem de sucesso
+                        // Fecha o modal
+                        $('#InserirUsuario').modal('hide');
+                        // Recarrega a págInserirUsuarioina
+                        location.reload();
+                    } else {
+                        alert(resultado.message);  // Exibe a mensagem de falha
                     }
-                });
+                },
+                error: function () {
+                    alert('Erro na requisição AJAX.');
+                }
+            });
+        }
+
+        function AtualizarUsuario() {
+
+            var id = $('#EdtId').val();
+            var nome = $('#EdtNome').val() || ''; // Garante que a variável não seja undefined ou null
+            var email = $('#EdtEmail').val() || ''; // Garante que a variável não seja undefined ou null
+            var senha = $('#EdtSenha').val() || ''; // Garante que a variável não seja undefined ou null
+            var telefone = $('#EdtTel').val() || ''; // Garante que a variável não seja undefined ou null
+            var tipoUsuario = $('#EdtTipoUsuario option:selected').val() || ''; // Garante que a variável não seja undefined ou null
+
+            // Valida os dados
+            if (nome.trim() === "") {
+                alert("Por favor, preencha o campo Nome.");
+                return;
+            }
+            if (senha.trim() === "") {
+                alert("Por favor, preencha o campo Senha.");
+                return;
+            }
+            if (email.trim() === "") {
+                alert("Por favor, insira um email válido.");
+                return;
+            }
+            if (tipoUsuario === "" || tipoUsuario === "Escolha o Tipo de Usuário") {
+                alert("Por favor, selecione o tipo de usuário.");
+                return;
+            }
+            if (telefone.trim() === "") {
+                alert("Por favor, insira um número de telefone válido.");
+                return;
             }
 
-            function AlterarUsuario() {
-                var id = $("#IdEdt").val();
-                var nome = $("#EditNome").val();
-                var senha = $("#EditSenha").val();
-                var email = $("#EditEmail").val();
-                var tel = $('#EditTel').val();
-                var tipoCli = $('#DropTipoUsuarioEdit').val(); // Obtém o valor do tipo de cliente, não apenas o texto
+            var dados = {
+                Id: id, // ID do usuário a ser atualizado
+                Nome: nome,
+                Email: email,
+                Senha: senha,
+                Telefone: telefone,
+                TipoUsuario: tipoUsuario
+            };
 
-                // Validação do campo 'Nome'
-                if (!nome) {
-                    alert("Por favor, preencha o campo Nome.");
-                    return;
-                }
-
-                // Validação do campo 'Senha'
-                if (!senha) {
-                    alert("Por favor, preencha o campo Senha.");
-                    return;
-                }
-
-                // Validação do campo 'Email'
-                if (!email) {
-                    alert("Por favor, preencha o campo Email.");
-                    return;
-                }
-
-                // Validação do campo 'Telefone'
-                if (!tel) {
-                    alert("Por favor, preencha o campo Telefone.");
-                    return;
-                }
-
-                // Validação do campo 'Tipo de Cliente'
-                if (!tipoCli) {
-                    alert("Por favor, selecione o Tipo de Cliente.");
-                    return;
-                }
-
-                // Crie um objeto com os dados
-                var dados = {
-                    Id: id,
-                    Nome: nome,
-                    Senha: senha,
-                    Email: email,
-                    Telefone: tel,
-                    TipoUsuario: tipoCli
-                };
-
-                // Faça a chamada AJAX para o servidor
-                $.ajax({
-                    type: "POST",
-                    url: "/Usuario/AlterarUsuario",
-                    contentType: "application/json; charset=utf-8",
-                    data: JSON.stringify(dados),
-                    success: function (response) {
-                        // Manipule a resposta do servidor
-                        if (response.success) {
-                            alert("Cliente alterado com sucesso!");
-                            // Feche o modal de edição se necessário
-                            $('#FormEditar').modal('hide');
-                            // Recarregue a página se necessário
-                            location.reload();
-                        } else {
-                            alert("Falha ao alterar cliente.");
-                        }
-                    },
-                    error: function (error) {
-                        // Manipule erros de requisição AJAX
-                        console.error("Erro na chamada AJAX:", error);
+            // Requisição AJAX para atualizar o usuário
+            $.ajax({
+                url: '/Usuario/AtualizarUsuario',  // URL para a ação de atualizar no servidor
+                type: "POST",
+                dataType: "json",
+                data: dados,
+                success: function (resultado) {
+                    if (resultado.success) {
+                        alert(resultado.message);  // Exibe a mensagem de sucesso
+                        $('#InserirUsuario').modal('hide'); // Fecha o modal de inserção/atualização
+                        location.reload(); // Recarrega a página para refletir as alterações
+                    } else {
+                        alert(resultado.message);  // Exibe a mensagem de falha
                     }
-                });
-            }
+                },
+                error: function () {
+                    alert('Erro na requisição AJAX.');
+                }
+            });
+        }
 
-            function ExcluirUsuario() {
-                // Obtenha o ID do usuário a ser excluído
-                var userId = $('#IdExc').val();
+        function ExcluirUsuario() {
+            var id = $('#ExcId').val();  // Pega o valor do ID do campo hidden
+            console.log("ID a ser excluído: ", id);  // Verifique se o ID está sendo corretamente recuperado
 
-                // Faça uma requisição AJAX
-                $.ajax({
-                    type: "POST",
-                    url: "/Usuario/ExcluirUsuario", // Substitua "Usuario" pelo nome do seu controller
-                    data: { id: userId },
-                    dataType: "json",
-                    success: function (response) {
-                        // A resposta do servidor está em response.success
-                        if (response.success) {
-                            // Feche o modal de exclusão
-                            $('#ExcluirUsuario').modal('hide');
-                            alert("Cliente excluido com sucesso!");
+            var dados = { Id: id };  // Dados a enviar para o servidor (ID do usuário)
 
-                            // Recarregue a página
-                            location.reload();
-                        } else {
-                            alert("Falha ao excluir usuário.");
-                        }
-                    },
-                    error: function () {
-                        alert("Erro na requisição AJAX.");
+            // Requisição AJAX para excluir o usuário
+            $.ajax({
+                url: '/Usuario/ExcluirUsuario',  // URL para a ação de exclusão no servidor
+                type: "POST",
+                dataType: "json",
+                data: dados,
+                success: function (resultado) {
+                    // Verifica se a resposta contém sucesso ou falha
+                    if (resultado.success) {
+                        alert(resultado.message);  // Exibe a mensagem de sucesso
+                        location.reload(); // Recarrega a página para refletir as mudanças
+                    } else {
+                        alert("Esse usuario possui relacionamento com atendimento e não pode ser excluido");  // Exibe a mensagem de falha
                     }
-                });
-            }
+                },
+                error: function () {
+                    alert('Erro na requisição AJAX.');  // Caso haja algum erro na requisição AJAX
+                }
+            });
+        }
 
-
-
-        </script>
-
-    </section>
-
-    <!--Butao Voltar-->
-
-    <section class="container text-center">
-        <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-            <div>
-                <button type="button" id="send-button2" class="nav-link active btn btn-success btn-block"
-                        style="flex: 1; margin-left: 5px;" onclick="window.location.href = '/Home/Index';">
-                    Voltar
-                </button>
-            </div>
-        </div>
-    </section>
-
+    </script>
 
 </body>
