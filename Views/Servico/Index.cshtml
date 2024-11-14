@@ -1,4 +1,6 @@
-﻿@{
+﻿@model IEnumerable<MoveisprimeVS.Models.ServicoVM>
+
+@{
     Layout = "~/Views/Shared/_Layout_Gerenciamento.cshtml";
 }
 
@@ -33,52 +35,56 @@
                         <!-- Alteração para "text-md-end" para alinhar à direita apenas em telas médias e maiores -->
                         <button class="btn btn-success btn-lg" onclick="" data-bs-toggle="modal"
                                 data-bs-target="#InserirUsuario">
-                            <i class="fa fa-plus"></i> Adicionar Cliente
+                            <i class="fa fa-plus"></i> Adicionar Serviço
                         </button>
                     </div>
                 </div>
             </div>
 
-            <div class="table-container table-responsive">
-                <table id="TbClientes" class="table">
-                    <colgroup>
-                        <col class="tc-nome">
-                    </colgroup>
-                    <thead>
-                        <tr>
-                            <th>#</th>
-                            <th>nome do servico</th>
-                            <th>valor do servico</th>
+            <div class="table-container" style="max-height: 400px; overflow-y: auto;">
+                <div class="table-responsive">
+                    <table id="TbServico" class="table" style="width: 100%; border-collapse: collapse; table-layout: fixed;">
+                        <!-- Cabeçalho fixo -->
+                        <thead style="background-color: #648D78; color: #F7F5F2;">
+                            <tr>
+                                <th style="color: #F7F5F2; border: 1px solid #ddd; padding: 8px; width: 50px; position: sticky; top: 0; background-color:#648D78;">#</th>
+                                <th style="color: #F7F5F2; border: 1px solid #ddd; padding: 8px; width: 190px; position: sticky; top: 0; background-color: #648D78;">Tipo de Serviço</th>
+                                <th style="color: #F7F5F2; border: 1px solid #ddd; padding: 8px; width: 230px; position: sticky; top: 0; background-color: #648D78;">Valor</th>
+                                <th class="editar" style="color: #F7F5F2; border: 1px solid #ddd; padding: 8px; position: sticky; top: 0; background-color: #648D78;">Editar</th>
+                                <th class="excluir" style="color: #F7F5F2; border: 1px solid #ddd; padding: 8px; position: sticky; top: 0; background-color: #648D78;">Excluir</th>
+                            </tr>
+                        </thead>
+                    </table>
 
-                            <th class="editar">Editar</th>
-                            <th class="excluir">Excluir</th>
-                        </tr>
-                    </thead>
-                    <tbody>
+                    <!-- Corpo da tabela rolável -->
+                    <div style="max-height: 300px; overflow-y: auto; overflow-x: hidden;">
+                        <table id="TbServicoBody" class="table" style="width: 100%; border-collapse: collapse; table-layout: fixed;">
+                            <tbody>
+                                @foreach (var servico in Model)
+                                {
+                                    <tr>
+                                        <td style="color: #ac0404; border: 1px solid #ddd; padding: 8px;width: 50px">@servico.Id</td>
+                                        <td style="color: #ac0404; border: 1px solid #ddd; padding: 8px;width: 190px">@servico.TipoServico</td>
+                                        <td style="color: #ac0404; border: 1px solid #ddd; padding: 8px;width: 230px">@servico.Valor.ToString("C")</td> <!-- Formatando o valor como moeda -->
 
-                        <tr id="Id">
-                            <td>id</td>
-                            <td>nome do servico</td>
-                            <td>Valor do servico</td>
-                            <td>
-                                <button class="btn btn-default"
-                                        onclick="definirEdt('Id', 'Nome', 'Email','Senha', 'TipoUsuario','Telefone')"
-                                        data-bs-toggle="modal" data-bs-target="#EditarUsuario">
-                                    <i class="fa fa-edit"></i>
-                                </button>
-                            </td>
-                            <td>
-                                <button class="btn btn-default"
-                                        onclick="definirExc('Id', 'Nome', 'Email', 'Telefone')"
-                                        data-bs-toggle="modal" data-bs-target="#ExcluirUsuario">
-                                    <i class="fa fa-trash text-danger"></i>
-                                </button>
-                            </td>
-                        </tr>
-
-                    </tbody>
-                </table>
+                                        <td class="text-center" style="border: 1px solid #ddd;">
+                                            <button class="btn btn-default" onclick="definirEdt('@servico.Id', '@servico.TipoServico', '@servico.Valor')" data-bs-toggle="modal" data-bs-target="#EditarServico" style="color: #EAE7DC;">
+                                                <i class="fa fa-edit"></i>
+                                            </button>
+                                        </td>
+                                        <td class="text-center" style="border: 1px solid #ddd;">
+                                            <button class="btn btn-default" onclick="definirExc('@servico.Id', '@servico.TipoServico', '@servico.Valor')" data-bs-toggle="modal" data-bs-target="#ExcluirServico" style="color: #EAE7DC;">
+                                                <i class="fa fa-trash"></i>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
             </div>
+
 
         </div>
 
@@ -169,7 +175,7 @@
                 <div class="modal-content">
 
                     <div class="modal-header" style="background-color: #deeaea; color: white; border-color: #648d78;">
-                        <h1 class="modal-title" id="exampleModalLabel">Adicionar Cliente</h1>
+                        <h1 class="modal-title" id="exampleModalLabel">Adicionar Serviço</h1>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
 

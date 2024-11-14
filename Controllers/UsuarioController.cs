@@ -2,7 +2,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using MoveisprimeVS.Repositorio;
-using SiteAgendamento.Models;
+using MoveisprimeVS.Models;
 using System.Diagnostics;
 
 namespace MoveisprimeVS.Controllers
@@ -114,18 +114,6 @@ namespace MoveisprimeVS.Controllers
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
-    }
-}
-
-
-
-namespace SiteAgendamento.Models
-{
-    public class ErrorViewModel
-    {
-        public string? RequestId { get; set; }
-
-        public bool ShowRequestId => !string.IsNullOrEmpty(RequestId);
     }
 }
 

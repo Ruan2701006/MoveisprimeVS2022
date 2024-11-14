@@ -3,7 +3,12 @@
   "WorkspaceRootPath": "C:\\Users\\Aluno Noite\\Downloads\\Ruan-Website\\MoveisprimeVS2022\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{4B797E2E-B917-4C62-A2DD-FF82CC98367F}|..\\TesteMoveisPrime\\TesteMoveisPrime.csproj|c:\\users\\aluno noite\\downloads\\ruan-website\\testemoveisprime\\usuariorepositoriotests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{B5A0BD73-ED8F-4D7D-B3F8-3C5EAE2649FE}|MoveisprimeVS.csproj|c:\\users\\aluno noite\\downloads\\ruan-website\\moveisprimevs2022\\views\\servico\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{B5A0BD73-ED8F-4D7D-B3F8-3C5EAE2649FE}|MoveisprimeVS.csproj|solutionrelative:views\\servico\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B5A0BD73-ED8F-4D7D-B3F8-3C5EAE2649FE}|MoveisprimeVS.csproj|c:\\users\\aluno noite\\downloads\\ruan-website\\moveisprimevs2022\\models\\servicovm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B5A0BD73-ED8F-4D7D-B3F8-3C5EAE2649FE}|MoveisprimeVS.csproj|solutionrelative:models\\servicovm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -13,7 +18,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Bookmark",
@@ -25,15 +30,28 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "UsuarioRepositorioTests.cs",
-              "DocumentMoniker": "C:\\Users\\Aluno Noite\\Downloads\\Ruan-Website\\TesteMoveisPrime\\UsuarioRepositorioTests.cs",
-              "RelativeDocumentMoniker": "..\\TesteMoveisPrime\\UsuarioRepositorioTests.cs",
-              "ToolTip": "C:\\Users\\Aluno Noite\\Downloads\\Ruan-Website\\TesteMoveisPrime\\UsuarioRepositorioTests.cs",
-              "RelativeToolTip": "..\\TesteMoveisPrime\\UsuarioRepositorioTests.cs",
-              "ViewState": "AQIAAHQAAAAAAAAAAAAIwJUAAAAqAAAA",
+              "DocumentIndex": 1,
+              "Title": "ServicoVM.cs",
+              "DocumentMoniker": "C:\\Users\\Aluno Noite\\Downloads\\Ruan-Website\\MoveisprimeVS2022\\Models\\ServicoVM.cs",
+              "RelativeDocumentMoniker": "Models\\ServicoVM.cs",
+              "ToolTip": "C:\\Users\\Aluno Noite\\Downloads\\Ruan-Website\\MoveisprimeVS2022\\Models\\ServicoVM.cs",
+              "RelativeToolTip": "Models\\ServicoVM.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-13T19:54:20.451Z",
+              "WhenOpened": "2024-11-14T20:31:34.564Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\Aluno Noite\\Downloads\\Ruan-Website\\MoveisprimeVS2022\\Views\\Servico\\Index.cshtml",
+              "RelativeDocumentMoniker": "Views\\Servico\\Index.cshtml",
+              "ToolTip": "C:\\Users\\Aluno Noite\\Downloads\\Ruan-Website\\MoveisprimeVS2022\\Views\\Servico\\Index.cshtml",
+              "RelativeToolTip": "Views\\Servico\\Index.cshtml",
+              "ViewState": "AQIAACsAAAAAAAAAAAAQwFYAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-11-14T20:30:40.043Z",
               "EditorCaption": ""
             }
           ]
