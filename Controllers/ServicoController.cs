@@ -10,51 +10,48 @@ namespace MoveisprimeVS.Controllers
     {
         private readonly ServicoR _servicoRepositorio;
         private readonly ILogger<ServicoController> _logger;
+
         public ServicoController(ServicoR servicoRepositorio, ILogger<ServicoController> logger)
         {
             _servicoRepositorio = servicoRepositorio;
             _logger = logger;
         }
 
-        public IActionResult Login()
-        {
-            return View();
-        }
-        public IActionResult Cadastro()
-        {
-            return View();
-
-        }
         public IActionResult Index()
         {
             List<SelectListItem> tipoServico = new List<SelectListItem>
-             {
-                 new SelectListItem { Value = "0", Text = "Administrador" },
-                 new SelectListItem { Value = "1", Text = "Cliente" }
-             };
+            {
+                new SelectListItem { Value = "0", Text = "Limpeza" },
+                new SelectListItem { Value = "1", Text = "Manutenção" },
+                new SelectListItem { Value = "2", Text = "Instalação" },
+                new SelectListItem { Value = "3", Text = "Técnica" },
+                new SelectListItem { Value = "4", Text = "Transporte" },
+                new SelectListItem { Value = "5", Text = "Montagem" }
+            };
 
+            // Passar a lista para a View usando ViewBag
             ViewBag.lstTipoServico = new SelectList(tipoServico, "Value", "Text");
 
             var Servicos = _servicoRepositorio.ListarServicos();
             return View(Servicos);
         }
 
-        public IActionResult InserirServico(string TipoServico, decimal Valor)
+        public IActionResult InserirServico(string tipoServico, decimal valor)
         {
             try
             {
                 // Chama o método do repositório que realiza a inserção no banco de dados
-                var resultado = _servicoRepositorio.InserirServico(TipoServico, Valor);
+                var resultado = _servicoRepositorio.InserirServico(tipoServico, valor);
 
                 // Verifica o resultado da inserção
                 if (resultado)
                 {
-                    // Se o resultado for verdadeiro, significa que o usuário foi inserido com sucesso
+                    // Se o resultado for verdadeiro, significa que o servico foi inserido com sucesso
                     return Json(new { success = true, message = "Servico inserido com sucesso!" });
                 }
                 else
                 {
-                    // Se o resultado for falso, significa que houve um erro ao tentar inserir o usuário
+                    // Se o resultado for falso, significa que houve um erro ao tentar inserir o servico
                     return Json(new { success = false, message = "Erro ao inserir o servico. Tente novamente." });
                 }
             }
@@ -64,21 +61,20 @@ namespace MoveisprimeVS.Controllers
                 return Json(new { success = false, message = "Erro ao processar a solicitação. Detalhes: " + ex.Message });
             }
         }
-
-        public IActionResult AtualizarSevico(string TipoServico, decimal Valor)
+        public IActionResult AtualizarServico(int id, string tipoServico, decimal valor)
         {
             try
             {
-                // Chama o repositório para atualizar o usuário
-                var resultado = _servicoRepositorio.AtualizarServico(TipoServico, Valor);
+                // Chama o repositório para atualizar o servico
+                var resultado = _servicoRepositorio.AtualizarServico(id, tipoServico, valor);
 
                 if (resultado)
                 {
-                    return Json(new { success = true, message = "Servico atualizado com sucesso!" });
+                    return Json(new { success = true, message = "Serviço atualizado com sucesso!" });
                 }
                 else
                 {
-                    return Json(new { success = false, message = "Erro ao atualizar o servico. Verifique se o servico existe." });
+                    return Json(new { success = false, message = "Erro ao atualizar o serviço. Verifique se o serviço existe." });
                 }
             }
             catch (Exception ex)
@@ -86,7 +82,6 @@ namespace MoveisprimeVS.Controllers
                 return Json(new { success = false, message = "Erro ao processar a solicitação. Detalhes: " + ex.Message });
             }
         }
-
         public IActionResult ExcluirServico(int id)
         {
             try
@@ -96,12 +91,12 @@ namespace MoveisprimeVS.Controllers
 
                 if (resultado)
                 {
-                    return Json(new { success = true, message = "Servico excluído com sucesso!" });
+                    return Json(new { success = true, message = "Usuário excluído com sucesso!" });
                 }
                 else
                 {
                     // Se o resultado for falso, você pode fornecer uma mensagem mais específica.
-                    return Json(new { success = false, message = "Não foi possível excluir o servico. Verifique se ele está vinculado a outros registros no sistema." });
+                    return Json(new { success = false, message = "Não foi possível excluir o usuário. Verifique se ele está vinculado a outros registros no sistema." });
                 }
             }
             catch (Exception ex)

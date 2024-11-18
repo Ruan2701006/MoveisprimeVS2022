@@ -20,7 +20,8 @@ namespace MoveisprimeVS.Repositorio
                 servico.TipoServico = tipoServico;
                 servico.Valor = valor;
 
-                _context.TbServicos.Add(servico);  // Supondo que _context.TbUsuarios seja o DbSet para a entidade de usuários
+
+                _context.TbServicos.Add(servico);  // Supondo que _context.TbServicos seja o DbSet para a entidade de usuários
                 _context.SaveChanges();
 
                 return true;  // Retorna true para indicar sucesso
@@ -34,7 +35,7 @@ namespace MoveisprimeVS.Repositorio
 
         public List<ServicoVM> ListarServicos()
         {
-            List<ServicoVM> listFun = new List<ServicoVM>();
+            List<ServicoVM> listSer = new List<ServicoVM>();
 
             var listTb = _context.TbServicos.ToList();
 
@@ -42,28 +43,29 @@ namespace MoveisprimeVS.Repositorio
             {
                 var servicos = new ServicoVM
                 {
+                    Id = item.Id,
                     TipoServico = item.TipoServico,
                     Valor = item.Valor,
                 };
 
-                listFun.Add(servicos);
+                listSer.Add(servicos);
             }
 
-            return listFun;
+            return listSer;
         }
 
-        public bool AtualizarServicos(string tipoServico, decimal valor, int id)
+        public bool AtualizarServico(int id, string tipoServico, decimal valor)
         {
             try
             {
-                // Busca o usuário pelo ID
+                // Busca o Servico pelo ID
                 var servico = _context.TbServicos.FirstOrDefault(u => u.Id == id);
                 if (servico != null)
                 {
-                    // Atualiza os dados do usuário
-                    
+                    // Atualiza os dados do servico
                     servico.TipoServico = tipoServico;
                     servico.Valor = valor;
+
 
                     // Salva as mudanças no banco de dados
                     _context.SaveChanges();
@@ -72,12 +74,12 @@ namespace MoveisprimeVS.Repositorio
                 }
                 else
                 {
-                    return false;  // Retorna falso se o usuário não foi encontrado
+                    return false;  // Retorna falso se o servico não foi encontrado
                 }
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"Erro ao atualizar o Serviço com ID {id}: {ex.Message}");
+                Console.WriteLine($"Erro ao atualizar o servico com ID {id}: {ex.Message}");
                 return false;
             }
         }
@@ -86,13 +88,13 @@ namespace MoveisprimeVS.Repositorio
         {
             try
             {
-                // Busca o usuário pelo ID
+                // Busca o servico pelo ID
                 var servico = _context.TbServicos.FirstOrDefault(u => u.Id == id);
 
                 // Se o usuário não for encontrado, lança uma exceção personalizada
                 if (servico == null)
                 {
-                    throw new KeyNotFoundException("Serviço não encontrado.");
+                    throw new KeyNotFoundException("Servico não encontrado.");
                 }
 
 
@@ -110,13 +112,8 @@ namespace MoveisprimeVS.Repositorio
                 Console.WriteLine($"Erro ao excluir o servico com ID {id}: {ex.Message}");
 
                 // Relança a exceção para ser capturada pelo controlador
-                throw new Exception($"Erro ao servico o usuário: {ex.Message}");
+                throw new Exception($"Erro ao excluir o servico: {ex.Message}");
             }
-        }
-
-        internal bool AtualizarServico(string tipoServico, decimal valor)
-        {
-            throw new NotImplementedException();
         }
     }
 }

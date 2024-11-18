@@ -3,12 +3,26 @@
   "WorkspaceRootPath": "C:\\Users\\Aluno Noite\\Downloads\\Ruan-Website\\MoveisprimeVS2022\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{4B797E2E-B917-4C62-A2DD-FF82CC98367F}|..\\TesteMoveisPrime\\TesteMoveisPrime.csproj|c:\\users\\aluno noite\\downloads\\ruan-website\\testemoveisprime\\usuariorepositoriotests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4B797E2E-B917-4C62-A2DD-FF82CC98367F}|..\\TesteMoveisPrime\\TesteMoveisPrime.csproj|c:\\users\\aluno noite\\downloads\\ruan-website\\testemoveisprime\\servicorepositoriotests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B5A0BD73-ED8F-4D7D-B3F8-3C5EAE2649FE}|MoveisprimeVS.csproj|c:\\users\\aluno noite\\downloads\\ruan-website\\moveisprimevs2022\\controllers\\servicocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B5A0BD73-ED8F-4D7D-B3F8-3C5EAE2649FE}|MoveisprimeVS.csproj|solutionrelative:controllers\\servicocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{B5A0BD73-ED8F-4D7D-B3F8-3C5EAE2649FE}|MoveisprimeVS.csproj|c:\\users\\aluno noite\\downloads\\ruan-website\\moveisprimevs2022\\views\\servico\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{B5A0BD73-ED8F-4D7D-B3F8-3C5EAE2649FE}|MoveisprimeVS.csproj|solutionrelative:views\\servico\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{B5A0BD73-ED8F-4D7D-B3F8-3C5EAE2649FE}|MoveisprimeVS.csproj|c:\\users\\aluno noite\\downloads\\ruan-website\\moveisprimevs2022\\models\\servicovm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B5A0BD73-ED8F-4D7D-B3F8-3C5EAE2649FE}|MoveisprimeVS.csproj|solutionrelative:models\\servicovm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{B5A0BD73-ED8F-4D7D-B3F8-3C5EAE2649FE}|MoveisprimeVS.csproj|c:\\users\\aluno noite\\downloads\\ruan-website\\moveisprimevs2022\\repositorio\\servicor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B5A0BD73-ED8F-4D7D-B3F8-3C5EAE2649FE}|MoveisprimeVS.csproj|solutionrelative:repositorio\\servicor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B5A0BD73-ED8F-4D7D-B3F8-3C5EAE2649FE}|MoveisprimeVS.csproj|c:\\users\\aluno noite\\downloads\\ruan-website\\moveisprimevs2022\\orm\\tbservico.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B5A0BD73-ED8F-4D7D-B3F8-3C5EAE2649FE}|MoveisprimeVS.csproj|solutionrelative:orm\\tbservico.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -18,7 +32,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Bookmark",
@@ -30,28 +44,80 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "ServicoVM.cs",
-              "DocumentMoniker": "C:\\Users\\Aluno Noite\\Downloads\\Ruan-Website\\MoveisprimeVS2022\\Models\\ServicoVM.cs",
-              "RelativeDocumentMoniker": "Models\\ServicoVM.cs",
-              "ToolTip": "C:\\Users\\Aluno Noite\\Downloads\\Ruan-Website\\MoveisprimeVS2022\\Models\\ServicoVM.cs",
-              "RelativeToolTip": "Models\\ServicoVM.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAAAAAAAA",
+              "DocumentIndex": 0,
+              "Title": "UsuarioRepositorioTests.cs",
+              "DocumentMoniker": "C:\\Users\\Aluno Noite\\Downloads\\Ruan-Website\\TesteMoveisPrime\\UsuarioRepositorioTests.cs",
+              "RelativeDocumentMoniker": "..\\TesteMoveisPrime\\UsuarioRepositorioTests.cs",
+              "ToolTip": "C:\\Users\\Aluno Noite\\Downloads\\Ruan-Website\\TesteMoveisPrime\\UsuarioRepositorioTests.cs",
+              "RelativeToolTip": "..\\TesteMoveisPrime\\UsuarioRepositorioTests.cs",
+              "ViewState": "AQIAAGsAAAAAAAAAAAAIwI0AAAAfAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-14T20:31:34.564Z",
+              "WhenOpened": "2024-11-18T20:25:16.012Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
+              "Title": "ServicoRepositorioTests.cs",
+              "DocumentMoniker": "C:\\Users\\Aluno Noite\\Downloads\\Ruan-Website\\TesteMoveisPrime\\ServicoRepositorioTests.cs",
+              "RelativeDocumentMoniker": "..\\TesteMoveisPrime\\ServicoRepositorioTests.cs",
+              "ToolTip": "C:\\Users\\Aluno Noite\\Downloads\\Ruan-Website\\TesteMoveisPrime\\ServicoRepositorioTests.cs",
+              "RelativeToolTip": "..\\TesteMoveisPrime\\ServicoRepositorioTests.cs",
+              "ViewState": "AQIAAIUAAAAAAAAAAAAcwJ8AAAABAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-18T20:16:52.92Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "TbServico.cs",
+              "DocumentMoniker": "C:\\Users\\Aluno Noite\\Downloads\\Ruan-Website\\MoveisprimeVS2022\\ORM\\TbServico.cs",
+              "RelativeDocumentMoniker": "ORM\\TbServico.cs",
+              "ToolTip": "C:\\Users\\Aluno Noite\\Downloads\\Ruan-Website\\MoveisprimeVS2022\\ORM\\TbServico.cs",
+              "RelativeToolTip": "ORM\\TbServico.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-18T19:36:21.567Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "ServicoR.cs",
+              "DocumentMoniker": "C:\\Users\\Aluno Noite\\Downloads\\Ruan-Website\\MoveisprimeVS2022\\Repositorio\\ServicoR.cs",
+              "RelativeDocumentMoniker": "Repositorio\\ServicoR.cs",
+              "ToolTip": "C:\\Users\\Aluno Noite\\Downloads\\Ruan-Website\\MoveisprimeVS2022\\Repositorio\\ServicoR.cs",
+              "RelativeToolTip": "Repositorio\\ServicoR.cs",
+              "ViewState": "AQIAAFMAAAAAAAAAAAAIwFsAAABKAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-18T18:11:44.871Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
               "Title": "Index.cshtml",
               "DocumentMoniker": "C:\\Users\\Aluno Noite\\Downloads\\Ruan-Website\\MoveisprimeVS2022\\Views\\Servico\\Index.cshtml",
               "RelativeDocumentMoniker": "Views\\Servico\\Index.cshtml",
               "ToolTip": "C:\\Users\\Aluno Noite\\Downloads\\Ruan-Website\\MoveisprimeVS2022\\Views\\Servico\\Index.cshtml",
               "RelativeToolTip": "Views\\Servico\\Index.cshtml",
-              "ViewState": "AQIAACsAAAAAAAAAAAAQwFYAAAAAAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAIAAAACAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-11-14T20:30:40.043Z",
+              "WhenOpened": "2024-11-18T17:53:35.421Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "ServicoController.cs",
+              "DocumentMoniker": "C:\\Users\\Aluno Noite\\Downloads\\Ruan-Website\\MoveisprimeVS2022\\Controllers\\ServicoController.cs",
+              "RelativeDocumentMoniker": "Controllers\\ServicoController.cs",
+              "ToolTip": "C:\\Users\\Aluno Noite\\Downloads\\Ruan-Website\\MoveisprimeVS2022\\Controllers\\ServicoController.cs",
+              "RelativeToolTip": "Controllers\\ServicoController.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABsAAAA+AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-18T17:53:13.914Z",
               "EditorCaption": ""
             }
           ]
