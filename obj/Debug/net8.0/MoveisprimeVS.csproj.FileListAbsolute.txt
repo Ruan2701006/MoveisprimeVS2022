@@ -416,4 +416,4 @@ C:\Users\Aluno Noite\Downloads\Ruan-Website\MoveisprimeVS2022\bin\Debug\net8.0\t
 C:\Users\Aluno Noite\Downloads\Ruan-Website\MoveisprimeVS2022\bin\Debug\net8.0\zh-Hans\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
 C:\Users\Aluno Noite\Downloads\Ruan-Website\MoveisprimeVS2022\bin\Debug\net8.0\zh-Hant\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
 C:\Users\Aluno Noite\Downloads\Ruan-Website\MoveisprimeVS2022\bin\Debug\net8.0\runtimes\browser\lib\net8.0\System.Text.Encodings.Web.dll
-C:\Users\Aluno Noite\Downloads\Ruan-Website\MoveisprimeVS2022\obj\Debug\net8.0\scopedcss\Views\Shared\_LayoutCadastro.cshtml.rz.scp.css
+C:\Users\Aluno Noite\Downloads\Ruan-Website\MoveisprimeVS2022\obj\Debug\net8.0\scopedcss\Views\Shared\_Layout_Cadastro.cshtml.rz.scp.css
