@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace MoveisprimeVS.ORM;
 
-public partial class ViewBdMoveisPrime
+public partial class ViewAgendamento
 {
     public int Id { get; set; }
 

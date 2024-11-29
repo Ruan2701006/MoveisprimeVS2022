@@ -15,13 +15,13 @@ public partial class BdMoveisPrimeContext : DbContext
     {
     }
 
-    public virtual DbSet<TbAtendimento> TbAtendimentos { get; set; }
+    public virtual DbSet<TbAgendamento> TbAgendamentos { get; set; }
 
     public virtual DbSet<TbServico> TbServicos { get; set; }
 
     public virtual DbSet<TbUsuario> TbUsuarios { get; set; }
 
-    public virtual DbSet<ViewBdMoveisPrime> ViewBdMoveisPrimes { get; set; }
+    public virtual DbSet<ViewAgendamento> ViewAgendamentos { get; set; }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see https://go.microsoft.com/fwlink/?LinkId=723263.
@@ -29,20 +29,22 @@ public partial class BdMoveisPrimeContext : DbContext
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
-        modelBuilder.Entity<TbAtendimento>(entity =>
+        modelBuilder.Entity<TbAgendamento>(entity =>
         {
-            entity.ToTable("Tb_Atendimento");
+            entity.HasKey(e => e.Id).HasName("PK_Tb_Atendimento");
+
+            entity.ToTable("Tb_Agendamento");
 
             entity.Property(e => e.DtHoraAgendamento).HasColumnType("datetime");
             entity.Property(e => e.FkServicoId).HasColumnName("fk_Servico_ID");
             entity.Property(e => e.FkUsuarioId).HasColumnName("fk_Usuario_ID");
 
-            entity.HasOne(d => d.FkServico).WithMany(p => p.TbAtendimentos)
+            entity.HasOne(d => d.FkServico).WithMany(p => p.TbAgendamentos)
                 .HasForeignKey(d => d.FkServicoId)
                 .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("FK_Tb_Atendimento_Tb_Servico");
 
-            entity.HasOne(d => d.FkUsuario).WithMany(p => p.TbAtendimentos)
+            entity.HasOne(d => d.FkUsuario).WithMany(p => p.TbAgendamentos)
                 .HasForeignKey(d => d.FkUsuarioId)
                 .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("FK_Tb_Atendimento_Tb_Usuario");
@@ -76,11 +78,11 @@ public partial class BdMoveisPrimeContext : DbContext
                 .IsUnicode(false);
         });
 
-        modelBuilder.Entity<ViewBdMoveisPrime>(entity =>
+        modelBuilder.Entity<ViewAgendamento>(entity =>
         {
             entity
                 .HasNoKey()
-                .ToView("View_bd_MoveisPrime");
+                .ToView("View_Agendamento");
 
             entity.Property(e => e.DtHoraAgendamento).HasColumnType("datetime");
             entity.Property(e => e.Email)

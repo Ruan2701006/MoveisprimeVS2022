@@ -11,6 +11,8 @@ builder.Services.AddDbContext<BdMoveisPrimeContext>(options =>
 // Registrar o repositório (UsuarioRepositorio)
 builder.Services.AddScoped<UsuarioR>();  // Ou AddTransient ou AddSingleton dependendo do caso
 builder.Services.AddScoped<ServicoR>();
+builder.Services.AddScoped<AgendamentoR>();
+
 
 // Registrar outros serviços, como controllers com views
 builder.Services.AddControllersWithViews();
