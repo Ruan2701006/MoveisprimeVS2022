@@ -1,6 +1,7 @@
 ﻿using MoveisprimeVS.Models;
 using MoveisprimeVS.ORM;
 using Microsoft.EntityFrameworkCore;
+using System.Globalization;
 
 namespace MoveisprimeVS.Repositorio
 {
@@ -120,6 +121,38 @@ namespace MoveisprimeVS.Repositorio
             {
                 Console.WriteLine($"Erro ao excluir o agendamento com ID {id}: {ex.Message}");
                 return false;
+            }
+        }
+
+        public List<AgendamentoVM> ConsultarAgendamento(string datap)
+        {
+            DateOnly data = DateOnly.ParseExact(datap, "dd/MM/yyyy", CultureInfo.InvariantCulture);
+            string dataFormatada = data.ToString("yyyy-MM-dd"); // Formato desejado: "yyyy-MM-dd"
+
+            try
+            {
+                // Consulta ao banco de dados, convertendo para o tipo AtendimentoVM
+                var ListaAgendamento = _context.TbAgendamentos
+                    .Where(a => a.DataAtendimento == DateOnly.Parse(dataFormatada))
+                    .Select(a => new AgendamentoVM
+                    {
+                        // Mapear as propriedades de TbAtendimento para AtendimentoVM
+                        // Suponha que TbAtendimento tenha as propriedades Id, DataAtendimento, e outras:
+                        Id = a.Id,
+                        DtHoraAgendamento = a.DtHoraAgendamento,
+                        DataAtendimento = DateOnly.Parse(dataFormatada),
+                        Horario = a.Horario,
+                        FkUsuarioId = a.FkUsuarioId,
+                        FkServicoId = a.FkServicoId
+                    })
+                    .ToList(); // Converte para uma lista
+
+                return ListaAgendamento;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Erro ao consultar agendamentos: {ex.Message}");
+                return new List<AgendamentoVM>(); // Retorna uma lista vazia em caso de erro
             }
         }
     }

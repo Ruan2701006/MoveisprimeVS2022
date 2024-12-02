@@ -72,8 +72,8 @@
                         <!-- Submit button -->
                         <div style="display: flex; justify-content: space-between;">
                             <button type="button" id="send-button1" class="nav-link active btn btn-primary btn-block"
-                                    style="flex: 1; margin-right: 5px;" onclick="InserirUsuario()">
-                                Cadastrar
+                                    style="flex: 1; margin-right: 5px;" onclick="ConsultaLogin()">
+                                Login
                             </button>
                             <button type="button" id="send-button2" class="nav-link active btn btn-primary btn-block"
                                     style="flex: 1; margin-left: 5px;"
@@ -96,28 +96,29 @@
 <!-- JavaScript -->
 <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 <script>
-    function ConsultaLogin() {
-        var email = $("#loginEmail").val();
-        var senha = $("#loginPassword").val();
+        function ConsultaLogin() {
+            var email = $("#loginEmail").val();
+            var senha = $("#loginPassword").val();
 
-        $.ajax({
-            type: "POST",
-            url: "/Usuario/ConsultarUsuario",
-            data: { Email: email, Senha: senha },
-            dataType: "json",
-            success: function (result) {
-                if (result.success) {
-                    window.location.href = '/Home/Index';
-                } else {
-                    // Exiba uma mensagem de erro
-                    alert("Erro: " + result.message);
+            $.ajax({
+                type: "POST",
+                url: "/Usuario/VerificarUsuario",
+                data: { Email: email, Senha: senha },
+                dataType: "json",
+                success: function (result) {
+                    if (result.success) {
+                        window.location.href = '/Home/Index';
+
+                    } else {
+                        // Exiba uma mensagem de erro
+                        alert("Erro: " + result.message);
+                    }
+                },
+                error: function (error) {
+                    console.error(error);
+                    // Lógica para lidar com erros de chamada Ajax
                 }
-            },
-            error: function (error) {
-                console.error(error);
-                // Lógica para lidar com erros de chamada Ajax
-            }
-        });
-    }
+            });
+        }
 </script>
 </body>

@@ -51,5 +51,21 @@ namespace MoveisprimeVS.Controllers
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
+
+        public IActionResult ConsultarAgendamento(string data)
+        {
+
+            var agendamento = _agendamentoRepositorio.ConsultarAgendamento(data);
+
+            if (agendamento != null)
+            {
+                return Json(agendamento);
+            }
+            else
+            {
+                return NotFound();
+            }
+
+        }
     }
 }

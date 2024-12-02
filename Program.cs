@@ -4,19 +4,30 @@ using MoveisprimeVS.Repositorio;
 
 var builder = WebApplication.CreateBuilder(args);
 
+
 // Registrar o DbContext se necessário
 builder.Services.AddDbContext<BdMoveisPrimeContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
 // Registrar o repositório (UsuarioRepositorio)
 builder.Services.AddScoped<UsuarioR>();  // Ou AddTransient ou AddSingleton dependendo do caso
-builder.Services.AddScoped<ServicoR>();
-builder.Services.AddScoped<AgendamentoR>();
+// Registrar o repositório (ServicoRepositorio)
+builder.Services.AddScoped<ServicoR>();  // Ou AddTransient ou AddSingleton dependendo do caso
+// Registrar o repositório (AgendamentoRepositorio)
+builder.Services.AddScoped<AgendamentoR>();  // Ou AddTransient ou AddSingleton dependendo do caso
 
+// Adicionar suporte a sessões
+builder.Services.AddSession(options =>
+{
+    options.IdleTimeout = TimeSpan.FromMinutes(30); // Defina o tempo de expiração da sessão
+    options.Cookie.HttpOnly = true; // Torna o cookie acessível apenas via HTTP
+});
 
 // Registrar outros serviços, como controllers com views
 builder.Services.AddControllersWithViews();
+
 var app = builder.Build();
+
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
 {
@@ -26,7 +37,11 @@ if (!app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+
 app.UseStaticFiles();
+
+// Adicionar o middleware de sessão
+app.UseSession();
 
 app.UseRouting();
 
@@ -37,4 +52,3 @@ app.MapControllerRoute(
     pattern: "{controller=Home}/{action=Index}/{id?}");
 
 app.Run();
-
