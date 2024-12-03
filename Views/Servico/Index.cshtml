@@ -111,19 +111,25 @@
                     </div>
                     <div class="modal-body">
                         <form>
+                            <p style="color:red">Campos com * vermelho são obrigatórios</p>
                             <div class="mb-3 row">
                                 <div class="col-md-6">
-                                    @Html.DropDownList("TipoServico", ViewBag.lstTipoServico as SelectList, "Escolha o tipo de Serviço", new { @class = "form-control", @style = "width:230px; background-color: #EAE7DC; color: #333;", required = "required" })
+                                    @Html.DropDownList("TipoServico", ViewBag.lstTipoServico as SelectList, "Escolha o tipo de Servico", new { @class = "form-control", @style = "width:230px; background-color: #EAE7DC; color: #333;", required = "required" })
                                 </div>
                                 <div class="col-md-6">
                                     <label style="color:red">*</label>
                                 </div>
                             </div>
 
-                            <div class="mb-3">
-                                <label for="v_serv">Valor do Serviço:</label>
-                                <input id="Valor" type="number" class="form-control" style="width: 300px;" placeholder="R$ 1000,00" required>
+                            <div class="mb-3 row">
+                                <div class="col-md-6">
+                                    <input id="Valor" type="text" placeholder="Digite o valor">
+                                </div>
+                                <div class="col-md-6">
+                                    <label style="color:red">*</label>
+                                </div>
                             </div>
+                            <input type="hidden" id="IdEdt" value="" />
                         </form>
                     </div>
                     <div class="modal-footer">
@@ -143,6 +149,7 @@
                     </div>
                     <div class="modal-body">
                         <form>
+                            <p style="color:red">Campos com * vermelho são obrigatórios</p>
                             <div class="mb-3 row">
                                 <div class="col-md-6">
                                     @Html.DropDownList("EdtTipoServico", ViewBag.lstTipoServico as SelectList, "Escolha o tipo de Serviço", new { @class = "form-control", @style = "width:230px; background-color: #EAE7DC; color: #333;", required = "required" })
@@ -151,11 +158,16 @@
                                     <label style="color:red">*</label>
                                 </div>
                             </div>
-                            <div class="mb-3">
-                                <label for="EdtValor">Valor do Serviço</label>
-                                <input type="text" id="EdtValor" class="form-control" placeholder="R$ 1000,00">
+
+                            <div class="mb-3 row">
+                                <div class="col-md-6">
+                                    <input id="EdtValor" type="text" placeholder="Digite o valor">
+                                </div>
+                                <div class="col-md-6">
+                                    <label style="color:red">*</label>
+                                </div>
                             </div>
-                            <input type="hidden" id="EdtId" value="">
+                            <input type="hidden" id="EdtId" value="" />
                         </form>
                     </div>
                     <div class="modal-footer">
@@ -167,18 +179,7 @@
         </div>
 
 
-    </section>
-
-    <!--Butao Voltar-->
-    <section class="container text-center">
-        <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-            <div>
-                <button type="button" id="send-button2" class="nav-link active btn btn-danger btn-block" style="flex: 1; margin-left: 5px;" onclick="window.location.href = '/Home/Index';">
-                    Voltar
-                </button>
-            </div>
-        </div>
-    </section>
+    </section>   
 
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 
@@ -188,7 +189,143 @@
 
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script>
-       
+
+        document.addEventListener("DOMContentLoaded", function () {
+            // Função para verificar se o campo foi preenchido e esconder o asterisco
+            function verificarPreenchimento(campo, label) {
+                // Verifica se o campo está preenchido (para input) ou se o select não tem o valor padrão
+                if (campo.value.trim() !== "" || (campo.tagName === "SELECT" && campo.selectedIndex !== 0)) {
+                    label.style.display = 'none'; // Esconde o asterisco
+                } else {
+                    label.style.display = 'inline'; // Exibe o asterisco se o campo estiver vazio
+                }
+            }
+
+            // Função para adicionar os eventos de input e change nos campos
+            function adicionarEventos() {
+                // Campos a serem monitorados
+                const campos = [
+                    { id: '#TipoServico', type: 'select' },  // Campo select
+                    { id: '#Valor', type: 'input' }         // Campo input
+                ];
+
+                campos.forEach(function (campoInfo) {
+                    const campo = document.querySelector(campoInfo.id);
+                    const label = campo.closest('.row').querySelector('label'); // Encontra o label associado ao campo
+
+                    if (campoInfo.type === 'input') {
+                        // Para campos de input, adicionar evento de 'input'
+                        campo.addEventListener('input', function () {
+                            verificarPreenchimento(campo, label);
+                        });
+                    } else if (campoInfo.type === 'select') {
+                        // Para o select, adicionar evento de 'change'
+                        campo.addEventListener('change', function () {
+                            verificarPreenchimento(campo, label);
+                        });
+                    }
+
+                    // Chama a função para inicializar o estado do campo ao carregar a página
+                    verificarPreenchimento(campo, label);
+                });
+            }
+
+            // Inicializa os eventos
+            adicionarEventos();
+
+            // Função para limpar os campos do modal quando for aberto
+            window.limparCamposInserirServico = function () {
+                // Limpar campos de texto
+                document.querySelector('#Valor').value = '';
+                document.querySelector('#TipoServico').selectedIndex = 0;  // Reseta o select para a opção "Escolha o tipo de Serviço"
+
+                // Mostrar novamente os asteriscos
+                const campos = [
+                    { id: '#TipoServico', type: 'select' },
+                    { id: '#Valor', type: 'input' }
+                ];
+
+                campos.forEach(function (campoInfo) {
+                    const campo = document.querySelector(campoInfo.id);
+                    const label = campo.closest('.row').querySelector('label');
+                    label.style.display = 'inline'; // Mostrar asterisco
+                });
+            }
+        });
+
+        document.addEventListener("DOMContentLoaded", function () {
+            // Função para verificar se o campo foi preenchido e esconder o asterisco
+            function verificarPreenchimento(campo, label) {
+                if (campo.value.trim() !== "" || (campo.tagName === "SELECT" && campo.selectedIndex !== 0)) {
+                    label.style.display = 'none'; // Esconde o asterisco
+                } else {
+                    label.style.display = 'inline'; // Exibe o asterisco se o campo estiver vazio
+                }
+            }
+
+            // Função para adicionar os eventos de input e change nos campos
+            function adicionarEventos() {
+                // Campos a serem monitorados
+                const campos = [
+                    { id: '#EdtTipoServico', type: 'select' },
+                    { id: '#EdtValor', type: 'input' }
+                ];
+
+                campos.forEach(function (campoInfo) {
+                    const campo = document.querySelector(campoInfo.id);
+                    const label = campo.closest('.row').querySelector('label'); // Encontra o label associado ao campo
+
+                    if (campoInfo.type === 'input') {
+                        // Para campos de input, adicionar evento de 'input'
+                        campo.addEventListener('input', function () {
+                            verificarPreenchimento(campo, label);
+                        });
+                    } else if (campoInfo.type === 'select') {
+                        // Para o select, adicionar evento de 'change'
+                        campo.addEventListener('change', function () {
+                            verificarPreenchimento(campo, label);
+                        });
+                    }
+
+                    // Chama a função para inicializar o estado do campo ao carregar a página
+                    verificarPreenchimento(campo, label);
+                });
+            }
+
+            // Inicializa os eventos
+            adicionarEventos();
+
+            // Função que preenche os campos ao editar o serviço
+            window.definirEdt = function (id, tiposervico, valor) {
+                // Preenche os campos do formulário com os valores recebidos
+                $('#EdtId').val(id);
+                $('#EdtValor').val(valor);
+
+                // Atualiza o tipo de serviço no dropdown
+                if ($('#EdtTipoServico').length > 0) {
+                    $('#EdtTipoServico option').filter(function () {
+                        return $(this).text() === tiposervico;  // Comparando o texto do tipo de serviço
+                    }).prop('selected', true);
+                    $('#EdtTipoServico').trigger('chosen:updated');
+                } else {
+                    console.error("DropDownList 'EdtTipoServico' não encontrado.");
+                }
+
+                // Verifica o preenchimento dos campos e esconde os asteriscos
+                const campos = [
+                    { id: '#EdtTipoServico', type: 'select' },
+                    { id: '#EdtValor', type: 'input' }
+                ];
+
+                // Chama a função de verificação para cada campo ao preencher os dados
+                campos.forEach(function (campoInfo) {
+                    const campo = document.querySelector(campoInfo.id);
+                    const label = campo.closest('.row').querySelector('label');
+                    verificarPreenchimento(campo, label);
+                });
+            }
+        });
+
         $(document).ready(function () {
             // Função para atualizar o contador de registros visíveis
             function atualizarContador() {
@@ -263,7 +400,15 @@
             // Coleta os valores dos campos HTML
             var valor = $('#Valor').val();
             var tipoServico = $('#TipoServico option:selected').text();
-
+           
+            if (tipoServico === "" || tipoServico === "Escolha o tipo de Servico") {
+                alert("Por favor, selecione o tipo de servico.");
+                return;
+            }
+            if (valor.trim() === "") {
+                alert("Por favor, insira um valor válido.");
+                return;
+            }
             // Cria o objeto de dados que será enviado
             var dados = {
                 tipoServico: tipoServico,

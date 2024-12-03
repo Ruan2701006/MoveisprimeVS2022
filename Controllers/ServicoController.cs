@@ -21,12 +21,12 @@ namespace MoveisprimeVS.Controllers
         {
             List<SelectListItem> tipoServico = new List<SelectListItem>
             {
-                new SelectListItem { Value = "0", Text = "Limpeza" },
-                new SelectListItem { Value = "1", Text = "Manutenção" },
-                new SelectListItem { Value = "2", Text = "Instalação" },
-                new SelectListItem { Value = "3", Text = "Técnica" },
-                new SelectListItem { Value = "4", Text = "Transporte" },
-                new SelectListItem { Value = "5", Text = "Montagem" }
+                new SelectListItem { Value = "0", Text = "Serviço de Limpeza" },
+                new SelectListItem { Value = "1", Text = "Serviço de Manutenção" },
+                new SelectListItem { Value = "2", Text = "Serviço de Instalação" },
+                new SelectListItem { Value = "3", Text = "Consultoria Técnica" },
+                new SelectListItem { Value = "4", Text = "Serviço de Transporte" },
+                new SelectListItem { Value = "5", Text = "Serviço de Montagem" }
             };
 
             // Passar a lista para a View usando ViewBag
