@@ -126,8 +126,9 @@ namespace MoveisprimeVS.Repositorio
 
         public List<AgendamentoVM> ConsultarAgendamento(string datap)
         {
-            DateOnly data = DateOnly.ParseExact(datap, "dd/MM/yyyy", CultureInfo.InvariantCulture);
+            DateOnly data = DateOnly.ParseExact(datap, "yyyy-MM-dd", CultureInfo.InvariantCulture);
             string dataFormatada = data.ToString("yyyy-MM-dd"); // Formato desejado: "yyyy-MM-dd"
+            Console.WriteLine(dataFormatada);
 
             try
             {

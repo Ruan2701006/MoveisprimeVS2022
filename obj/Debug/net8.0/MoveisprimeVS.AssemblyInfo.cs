@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("MoveisprimeVS")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+9dd8f78e329d2edcc8b62540abbb2a5d05a094ba")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+b066e3662001f80347c23236297dfba8028901fa")]
 [assembly: System.Reflection.AssemblyProductAttribute("MoveisprimeVS")]
 [assembly: System.Reflection.AssemblyTitleAttribute("MoveisprimeVS")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
