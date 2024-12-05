@@ -19,18 +19,21 @@ namespace MoveisprimeVS.Controllers
 
         public IActionResult Index()
         {
-            List<SelectListItem> tipoServico = new List<SelectListItem>
-            {
-                new SelectListItem { Value = "0", Text = "Serviço de Limpeza" },
-                new SelectListItem { Value = "1", Text = "Serviço de Manutenção" },
-                new SelectListItem { Value = "2", Text = "Serviço de Instalação" },
-                new SelectListItem { Value = "3", Text = "Consultoria Técnica" },
-                new SelectListItem { Value = "4", Text = "Serviço de Transporte" },
-                new SelectListItem { Value = "5", Text = "Serviço de Montagem" }
-            };
+            // Chama o método ListarNomesAgendamentos para obter a lista de usuários
+            var nomeServicos = _servicoRepositorio.ListarNomesServicos();
 
-            // Passar a lista para a View usando ViewBag
-            ViewBag.lstTipoServico = new SelectList(tipoServico, "Value", "Text");
+            if (nomeServicos != null && nomeServicos.Any())
+            {
+                // Cria a lista de SelectListItem
+                var selectList = nomeServicos.Select(u => new SelectListItem
+                {
+                    Value = u.Id.ToString(),  // O valor do item será o ID do usuário
+                    Text = u.TipoServico             // O texto exibido será o nome do usuário
+                }).ToList();
+
+                // Passa a lista para o ViewBag para ser utilizada na view
+                ViewBag.Servicos = selectList;
+            }
 
             var Servicos = _servicoRepositorio.ListarServicos();
             return View(Servicos);

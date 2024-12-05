@@ -15,30 +15,30 @@ namespace MoveisprimeVS.Repositorio
         }
 
         // Método para inserir um agendamento
-        public bool InserirAgendamento(AgendamentoVM agendamentoVM)
+        public bool InserirAgendamento(DateTime dtHoraAgendamento, DateOnly dataAtendimento, TimeOnly horario, int fkUsuarioId, int fkServicoId)
         {
             try
             {
-                // Cria uma nova entidade para o agendamento
-                var agendamento = new TbAgendamento
+                // Criando uma instância do modelo AtendimentoVM
+                var atendimento = new TbAgendamento
                 {
-                    DtHoraAgendamento = agendamentoVM.DtHoraAgendamento,
-                    DataAtendimento = agendamentoVM.DataAtendimento,
-                    Horario = agendamentoVM.Horario,
-                    FkUsuarioId = agendamentoVM.FkUsuarioId,
-                    FkServicoId = agendamentoVM.FkServicoId 
+                    DtHoraAgendamento = dtHoraAgendamento,
+                    DataAtendimento = dataAtendimento,
+                    Horario = horario,
+                    FkUsuarioId = fkUsuarioId,
+                    FkServicoId = fkServicoId
                 };
 
-                    _context.TbAgendamentos.Add(agendamento);
-                    _context.SaveChanges(); // Salva as alterações no banco
+                // Adicionando o atendimento ao contexto
+                _context.TbAgendamentos.Add(atendimento);
+                _context.SaveChanges(); // Persistindo as mudanças no banco de dados
 
-                return true;
+                return true; // Retorna true indicando sucesso
             }
             catch (Exception ex)
             {
-                // Log do erro ou tratamento
-                Console.WriteLine($"Erro ao inserir agendamento: {ex.Message}");
-                return false;
+                // Em caso de erro, pode-se logar a exceção (ex.Message)
+                return false; // Retorna false em caso de erro
             }
         }
 
@@ -123,7 +123,6 @@ namespace MoveisprimeVS.Repositorio
                 return false;
             }
         }
-
         public List<AgendamentoVM> ConsultarAgendamento(string datap)
         {
             DateOnly data = DateOnly.ParseExact(datap, "yyyy-MM-dd", CultureInfo.InvariantCulture);
@@ -155,6 +154,23 @@ namespace MoveisprimeVS.Repositorio
                 Console.WriteLine($"Erro ao consultar agendamentos: {ex.Message}");
                 return new List<AgendamentoVM>(); // Retorna uma lista vazia em caso de erro
             }
+        }
+        public List<UsuarioVM> ListarNomesAgendamentos()
+        {
+            // Lista para armazenar os usuários com apenas Id e Nome
+            List<UsuarioVM> listFun = new List<UsuarioVM>();
+
+            // Obter apenas os campos Id e Nome da tabela TbUsuarios
+            var listTb = _context.TbUsuarios
+                                 .Select(u => new UsuarioVM
+                                 {
+                                     Id = u.Id,
+                                     Nome = u.Nome
+                                 })
+                                 .ToList();
+
+            // Retorna a lista já com os campos filtrados
+            return listTb;
         }
     }
 }
