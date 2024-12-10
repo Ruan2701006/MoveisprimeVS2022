@@ -42,7 +42,7 @@ namespace MoveisprimeVS.Repositorio
             }
         }
 
-        public List<ViewAgendamentoVM> ListarAtendimentos()
+        public List<ViewAgendamentoVM> ListarAgendamentos()
         {
             List<ViewAgendamentoVM> listAtendimentos = new List<ViewAgendamentoVM>();
 
@@ -72,57 +72,99 @@ namespace MoveisprimeVS.Repositorio
             return listAtendimentos;
         }
 
-        // Método para atualizar um agendamento
-        public bool AtualizarAgendamento(int id, AgendamentoVM agendamentoVM)
+        public List<ViewAgendamentoVM> ListarAgendamentosCliente()
+        {
+            // Obtendo o ID do usuário a partir da variável de ambiente
+            string nome = Environment.GetEnvironmentVariable("USUARIO_NOME");
+
+            List<ViewAgendamentoVM> listAtendimentos = new List<ViewAgendamentoVM>();
+
+            // Recuperando todos os agendamentos que correspondem ao ID do usuário
+            var listTb = _context.ViewAgendamentos.Where(x => x.Nome == nome).ToList();
+
+            // Convertendo cada agendamento para ViewAgendamentoVM
+            foreach (var item in listTb)
+            {
+                var atendimento = new ViewAgendamentoVM
+                {
+                    Id = item.Id,
+                    DtHoraAgendamento = item.DtHoraAgendamento,
+                    DataAtendimento = item.DataAtendimento,
+                    Horario = item.Horario,
+                    TipoServico = item.TipoServico,
+                    Valor = item.Valor,
+                    Nome = item.Nome,
+                    Email = item.Email,
+                    Telefone = item.Telefone,
+                };
+
+                listAtendimentos.Add(atendimento);
+            }
+
+            return listAtendimentos;
+        }
+
+        // Método para atualizar um atendimento
+        public bool AlterarAgendamento(int id, string data, int servico, TimeOnly horario)
         {
             try
             {
-                var agendamento = _context.TbAgendamentos.FirstOrDefault(a => a.Id == id);
-                if (agendamento != null)
+                TbAgendamento agt = _context.TbAgendamentos.Find(id);
+                DateOnly dtHoraAgendamento;
+                if (agt != null)
                 {
-                    // Atualiza os dados do agendamento
-                    agendamento.DtHoraAgendamento = agendamentoVM.DtHoraAgendamento;
-                    agendamento.DataAtendimento = agendamentoVM.DataAtendimento;
-                    agendamento.Horario = agendamentoVM.Horario;
-                    agendamento.FkUsuarioId = agendamentoVM.FkUsuarioId;
-                    agendamento.FkServicoId = agendamentoVM.FkServicoId;
+                    agt.Id = id;
+                    if (data != null)
+                    {
+                        if (DateOnly.TryParse(data, out dtHoraAgendamento))
+                        {
+                            agt.DataAtendimento = dtHoraAgendamento;
+                        }
+                    }
 
-                    _context.SaveChanges(); // Salva as alterações no banco
+                    // Corrigido a verificação do tipo TimeOnly
+                    if (horario != TimeOnly.MinValue)  // Verificando se o horário não é o valor padrão
+                    {
+                        agt.Horario = horario;
+                    }
 
+                    agt.FkServicoId = servico;
+                    _context.SaveChanges();
                     return true;
                 }
 
-                return false; // Retorna falso se não encontrar o agendamento
+                return false;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                Console.WriteLine($"Erro ao atualizar o agendamento: {ex.Message}");
                 return false;
             }
         }
 
-        // Método para excluir um agendamento
+        // Método para excluir um atendimento
         public bool ExcluirAgendamento(int id)
         {
             try
             {
-                var agendamento = _context.TbAgendamentos.FirstOrDefault(a => a.Id == id);
-                if (agendamento != null)
+
+
+                var agt = _context.TbAgendamentos.Where(a => a.Id == id).FirstOrDefault();
+                if (agt != null)
                 {
-                    _context.TbAgendamentos.Remove(agendamento); // Remove o agendamento
-                    _context.SaveChanges(); // Salva as alterações no banco
+                    _context.TbAgendamentos.Remove(agt);
 
-                    return true;
                 }
-
-                return false; // Retorna falso se não encontrar o agendamento
+                _context.SaveChanges();
+                return true;
             }
-            catch (Exception ex)
+
+            catch (Exception)
             {
-                Console.WriteLine($"Erro ao excluir o agendamento com ID {id}: {ex.Message}");
+
                 return false;
             }
         }
+
         public List<AgendamentoVM> ConsultarAgendamento(string datap)
         {
             DateOnly data = DateOnly.ParseExact(datap, "yyyy-MM-dd", CultureInfo.InvariantCulture);

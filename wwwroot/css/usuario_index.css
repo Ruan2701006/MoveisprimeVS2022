@@ -121,22 +121,4 @@ label {
     color: red !important;
 }
 
-/*--------------------------------------------------------------
-# Butao voltar
---------------------------------------------------------------*/
-button {
-    background-color: #deeaea !important;
-    border: none !important;
-    color: #648d78 !important;
-    transition: .5s;
-}
 
-button:hover {
-    background-color: #648d78 !important;
-    color: #deeaea !important;
-    border: 1px solid #648d78 !important;
-}
-
-element.style {
-    color: red;
-}

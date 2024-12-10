@@ -1,4 +1,5 @@
-﻿@{
+﻿@model IEnumerable<MoveisprimeVS.Models.ViewAgendamentoVM>
+@{
     Layout = "~/Views/Shared/_Layout_Gerenciamento.cshtml";
 }
 
@@ -35,51 +36,66 @@
                 </div>
             </div>
 
-            <div class="table-container table-responsive">
-                <table id="TbClientes" class="table">
-                    <colgroup>
-                        <col class="tc-nome">
-                    </colgroup>
-                    <thead>
-                        <tr>
-                            <th>#</th>
-                            <th>Nome</th>
-                            <th>Email</th>
-                            <th>Telefone</th>
-                            <th>Agendamento para a Data</th>
-                            <th>Horario</th>
-                            <th>Serviço</th>
-                            <th>Valor</th>
-                            <th>Confirmação</th>
-                            <th style="color: black;">Editar</th>
-                            <th style="color: black;">Excluir</th>
-                        </tr>
-                    </thead>
+            <!-- Tabela com cabeçalho fixo -->
+            <table id="TbAtendimentos" class="table" style="width: 100%; border-collapse: collapse; table-layout: fixed;">
+                <thead style="background-color: chocolate; color: #EAE7DC;">
+                    <tr>
+                        <th style="border: 1px solid #ddd; padding: 8px; min-width: 50px; position: sticky; top: 0; background-color: #648D78">#</th>
+                        <th style="border: 1px solid #ddd; padding: 8px; min-width: 150px; position: sticky; top: 0; background-color: #648D78;">Data/Hora de Atendimento</th>
+                        <th style="border: 1px solid #ddd; padding: 8px; min-width: 150px; position: sticky; top: 0; background-color: #648D78;">Data de Atendimento</th>
+                        <th style="border: 1px solid #ddd; padding: 8px; min-width: 150px; position: sticky; top: 0; background-color: #648D78;">Hora</th>
+                        <th style="border: 1px solid #ddd; padding: 8px; min-width: 150px; position: sticky; top: 0; background-color: #648D78;">Nome</th>
+                        <th style="border: 1px solid #ddd; padding: 8px; min-width: 150px; position: sticky; top: 0; background-color: #648D78;">E-mail</th>
+                        <th style="border: 1px solid #ddd; padding: 8px; min-width: 150px; position: sticky; top: 0; background-color: #648D78;">Telefone</th>
+                        <th style="border: 1px solid #ddd; padding: 8px; min-width: 150px; position: sticky; top: 0; background-color: #648D78;">Tipo de Serviço</th>
+                        <th style="border: 1px solid #ddd; padding: 8px; min-width: 150px; position: sticky; top: 0; background-color: #648D78;">Valor</th>
+                        <th class="editar" style="border: 1px solid #ddd; padding: 8px; min-width: 80px; position: sticky; top: 0; background-color: #648D78;">Editar</th>
+                        <th class="excluir" style="border: 1px solid #ddd; padding: 8px; min-width: 80px; position: sticky; top: 0; background-color: #648D78;">Excluir</th>
+                    </tr>
+                </thead>
+            </table>
+
+            <!-- Corpo da tabela rolável -->
+            <div style="max-height: 300px; overflow-y: auto; overflow-x: auto;">
+                <table id="TbAgendamentoBody" class="table" style="width: 100%; border-collapse: collapse; table-layout: fixed;">
                     <tbody>
-
-                        <tr>
-                            <td>id</td>
-                            <td>Nome</td>
-                            <td>Email</td>
-                            <td>Telefone</td>
-                            <td>AgendarData</td>
-                            <td>Horario</td>
-                            <td>Tecnica</td>
-                            <td>Valor</td>
-                            <td>Confirmacao</td>
-
-                            <td class="text-center">
-                                <button class="btn btn-default" onclick="definirEdt('Id','Nome', 'Email', 'Telefone', 'AgendarData','Horario', 'Servico', 'Valor', 'Confirmacao')" data-bs-toggle="modal" data-bs-target="#EditarAgendamento">
-                                    <i class="fa fa-edit" style="color: black;"></i>
-                                </button>
-                            </td>
-                            <td class="text-center">
-                                <button class="btn btn-default" onclick="definirExc('Id','Nome', 'Email', 'Telefone', 'AgendarData','Horario', 'Servico', 'Valor', 'Confirmacao')" data-bs-toggle="modal" data-bs-target="#ExcluirAgendamento">
-                                    <i class="fa fa-trash" style="color: black;"></i>
-                                </button>
-                            </td>
-                        </tr>
-
+                        @if (Model != null && Model.Any())
+                        {
+                            @foreach (var atendimento in Model)
+                            {
+                                <tr>
+                                    <td style="color: #EAE7DC; border: 1px solid #ddd; padding: 8px; min-width: 50px">@atendimento.Id</td>
+                                    <td style="color: #EAE7DC; border: 1px solid #ddd; padding: 8px; min-width: 150px">@atendimento.DtHoraAgendamento</td>
+                                    <td style="color: #EAE7DC; border: 1px solid #ddd; padding: 8px; min-width: 150px">@atendimento.DataAtendimento.ToString("dd/MM/yyyy")</td>
+                                    <td style="color: #EAE7DC; border: 1px solid #ddd; padding: 8px; min-width: 150px">@atendimento.Horario.ToString("HH:mm")</td>
+                                    <td style="color: #EAE7DC; border: 1px solid #ddd; padding: 8px; min-width: 150px">@atendimento.Nome</td>
+                                    <td style="color: #EAE7DC; border: 1px solid #ddd; padding: 8px; min-width: 150px; word-wrap: break-word;">@atendimento.Email</td>
+                                    <td style="color: #EAE7DC; border: 1px solid #ddd; padding: 8px; min-width: 150px">@atendimento.Telefone</td>
+                                    <td style="color: #EAE7DC; border: 1px solid #ddd; padding: 8px; min-width: 150px">@atendimento.TipoServico</td>
+                                    <td style="color: #EAE7DC; border: 1px solid #ddd; padding: 8px; min-width: 150px">@atendimento.Valor.ToString("C")</td>
+                                    <td class="text-center" style="border: 1px solid #ddd; min-width: 80px;">
+                                        <button class="btn btn-default"
+                                                onclick="definirEdt(@atendimento.Id, '@atendimento.Nome', '@atendimento.Email', '@atendimento.Telefone', '@atendimento.DataAtendimento', '@atendimento.Horario', '@atendimento.TipoServico', '@atendimento.Valor')"
+                                                data-bs-toggle="modal" data-bs-target="#EditarAgendamento">
+                                            <i class="fa fa-edit" style="color: #F7F5F2;"></i>
+                                        </button>
+                                    </td>
+                                    <td class="text-center" style="border: 1px solid #ddd; min-width: 80px;">
+                                        <button class="btn btn-default"
+                                                onclick="definirExc(@atendimento.Id, '@atendimento.Nome', '@atendimento.Email', '@atendimento.Telefone', '@atendimento.DataAtendimento', '@atendimento.Horario', '@atendimento.TipoServico', '@atendimento.TipoServico')"
+                                                data-bs-toggle="modal" data-bs-target="#ExcluirAgendamento">
+                                            <i class="fa fa-trash" style="color: #F7F5F2;"></i>
+                                        </button>
+                                    </td>
+                                </tr>
+                            }
+                        }
+                        else
+                        {
+                            <tr>
+                                <td colspan="11" style="text-align: center; color: #EAE7DC; padding: 8px;">Nenhum atendimento encontrado.</td>
+                            </tr>
+                        }
                     </tbody>
                 </table>
             </div>
