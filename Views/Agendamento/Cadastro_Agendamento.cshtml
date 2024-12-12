@@ -121,7 +121,7 @@
 
                 <!-- Campo de data -->
                 <div class="mb-3 d-flex align-items-center">
-                    <input id="data_agdt" type="date" class="form-control" style="width: 300px;" placeholder="Escolha a data do agendamento" oninput="consultarAgendamento()" required>
+                    <input id="data_agdt" type="date" class="form-control" style="width: 300px;" placeholder="Escolha a data do agendamento" oninput="consultarAgendamento()" min="{{ today }}">
                     <label for="data_agdt" style="color:red; margin-left: 5px;">*</label>
                 </div>
 
@@ -395,6 +395,10 @@
                 }
             });
         }
+    </script>
+    <script>
+        // Definindo a data mínima como a data atual usando JavaScript
+        document.getElementById('data_agdt').setAttribute('min', new Date().toISOString().split('T')[0]);
     </script>
 </body>
 
