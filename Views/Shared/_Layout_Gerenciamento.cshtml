@@ -45,52 +45,83 @@
                     <!-- Menu do Administrador -->
                     <div class="dropdown" style="position: relative; display: inline-block;">
                         <span style="display: flex; align-items: center; margin-right: 20px;">
-                            <i class="fa fa-user" aria-hidden="true" style="color:"></i>
+                            <i class="fa fa-user" aria-hidden="true" style="color:;"></i>
                             <a href="#" style="margin-left: 10px;">@usuarioNome</a>
                             <i class="fa fa-chevron-down" aria-hidden="true" style="color: #648D78; margin-left: 5px;"></i>
-
                         </span>
                         <div class="dropdown-content" style="display: none; position: absolute; background-color: #EAE7DC; width: 200px; box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2); z-index: 1; padding: 8px; border-radius: 3%; border: #A65F3C solid 1px; box-shadow: 5px #A65F3C;">
-                            <a href="/Usuario/Index" style="padding: 7px; text-decoration: none; display: flex; align-items: center; margin: 5px;">
+                            <a href="/Usuario/Index" class="menu-item" style="padding: 7px; text-decoration: none; display: flex; align-items: center; margin: 5px;">
                                 <i class="fa fa-users" aria-hidden="true" style="margin-right: 8px;"></i>Usuarios
                             </a>
-                            <a href="/Agendamento/Index" style="padding: 7px; text-decoration: none; display: flex; align-items: center; margin: 5px;">
+                            <a href="/Agendamento/Index" class="menu-item" style="padding: 7px; text-decoration: none; display: flex; align-items: center; margin: 5px;">
                                 <i class="fa fa-calendar" aria-hidden="true" style="margin-right: 8px;"></i>Agendamento Admin
                             </a>
-                            <a href="/Servico/Index" style="padding: 7px; text-decoration: none; display: flex; align-items: center; margin: 5px;">
+                            <a href="/Servico/Index" class="menu-item" style="padding: 7px; text-decoration: none; display: flex; align-items: center; margin: 5px;">
                                 <i class="fas fa-gavel fa-lg" aria-hidden="true" style="margin-right: 8px;"></i>Serviço
                             </a>
-                            <a href="#logout" style="padding: 7px; text-decoration: none; display: flex; align-items: center; margin: 5px;">
+                            <a href="#logout" class="menu-item" style="padding: 7px; text-decoration: none; display: flex; align-items: center; margin: 5px;">
                                 <i class="fa fa-align-justify" aria-hidden="true" style="margin-right: 8px;"></i>Relatório
                             </a>
-                            <a href="javascript:void(0);" onclick="logout()" style="padding: 7px; text-decoration: none; display: flex; align-items: center; margin: 5px;">
+                            <a href="javascript:void(0);" onclick="logout()" class="menu-item" style="padding: 7px; text-decoration: none; display: flex; align-items: center; margin: 5px;">
                                 <i class="fa fa-sign-out-alt" aria-hidden="true" style="margin-right: 8px;"></i> Sair
                             </a>
                         </div>
                     </div>
+
+                    <style>
+                        /* Estilos para os itens do menu */
+                        .dropdown-content .menu-item {
+                            color: #648D78; /* Cor padrão do texto */
+                            background-color: #EAE7DC; /* Cor padrão do fundo */
+                            transition: background-color 0.3s, color 0.3s; /* Transição suave */
+                        }
+
+                            /* Efeito de hover */
+                            .dropdown-content .menu-item:hover {
+                                color: #EAE7DC !important; /* Cor do texto ao passar o mouse */
+                                background-color: #648D78; /* Cor do fundo ao passar o mouse */
+                            }
+                    </style>
+
                 }
                 else
                 {
                     <!-- Menu do Usuário -->
                     <div class="dropdown" style="position: relative; display: inline-block;">
                         <span style="display: flex; align-items: center; margin-right: 20px;">
-                            <i class="fa fa-user" aria-hidden="true" style="color:"></i>
+                            <i class="fa fa-user" aria-hidden="true"></i>
                             <a href="#" style="margin-left: 10px;">@usuarioNome</a>
                             <i class="fa fa-chevron-down" aria-hidden="true" style="color: #648D78; margin-left: 5px;"></i>
-
                         </span>
                         <div class="dropdown-content" style="display: none; position: absolute; background-color: #EAE7DC; width: 200px; box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2); z-index: 1; padding: 8px; border-radius: 3%; border: #A65F3C solid 1px; box-shadow: 5px #A65F3C;">
-                            <a href="/Agendamento/Gerenciamento_Agendamento_Usuario" style="padding: 7px; text-decoration: none; display: flex; align-items: center; margin: 5px;">
+                            <a href="/Agendamento/Gerenciamento_Agendamento_Usuario" class="menu-item" style="padding: 7px; text-decoration: none; display: flex; align-items: center; margin: 5px;">
                                 <i class="fa fa-calendar" aria-hidden="true" style="margin-right: 8px;"></i>Agendamento User
                             </a>
-                            <a href="/Agendamento/Cadastro_Agendamento" style="padding: 7px; text-decoration: none; display: flex; align-items: center; margin: 5px;">
+                            <a href="/Agendamento/Cadastro_Agendamento" class="menu-item" style="padding: 7px; text-decoration: none; display: flex; align-items: center; margin: 5px;">
                                 <i class="fa fa-file" aria-hidden="true" style="margin-right: 8px;"></i>Cadastro Agendamento
                             </a>
-                            <a href="javascript:void(0);" onclick="logout()" style="padding: 7px; text-decoration: none; display: flex; align-items: center; margin: 5px;">
+                            <a href="javascript:void(0);" onclick="logout()" class="menu-item" style="padding: 7px; text-decoration: none; display: flex; align-items: center; margin: 5px;">
                                 <i class="fa fa-sign-out-alt" aria-hidden="true" style="margin-right: 8px;"></i> Sair
                             </a>
                         </div>
                     </div>
+
+                    <style>
+                        /* Estilos para os itens do menu */
+                        .dropdown-content .menu-item {
+                            color: #648D78; /* Cor padrão do texto */
+                            background-color: #EAE7DC; /* Cor padrão do fundo */
+                            transition: background-color 0.3s, color 0.3s; /* Transição suave */
+                        }
+
+                            /* Efeito de hover */
+                            .dropdown-content .menu-item:hover {
+                                color: #EAE7DC !important; /* Cor do texto ao passar o mouse */
+                                background-color: #648D78; /* Cor do fundo ao passar o mouse */
+                            }
+                    </style>
+
+
                 }
             }
             else

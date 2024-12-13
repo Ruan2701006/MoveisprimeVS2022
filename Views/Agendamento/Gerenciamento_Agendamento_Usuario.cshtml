@@ -30,9 +30,9 @@
                     </div>
                     <div class="col-md-6 text-md-end">
                         <!-- Alteração para "text-md-end" para alinhar à direita apenas em telas médias e maiores -->
-                        <a href="@Url.Action("Cadastro_Agendamento", "Agendamento")" class="btn btn-lg" style="background-color: #EAE7DC; color: #648D78 !important;">
+                        <button class="btn btn-lg" onclick="" data-bs-toggle="modal" data-bs-target="#InserirServico">
                             <i class="fa fa-plus"></i> Adicionar Agendamento
-                        </a>
+                        </button>
 
                     </div>
                 </div>
@@ -78,15 +78,15 @@
                                     <td class="text-center" style="border: 1px solid #ddd; min-width: 80px;">
                                         <button class="btn btn-default"
                                                 onclick="definirEdt(@atendimento.Id, '@atendimento.Nome', '@atendimento.Email', '@atendimento.Telefone', '@atendimento.DataAtendimento', '@atendimento.Horario', '@atendimento.TipoServico', '@atendimento.Valor')"
-                                                data-bs-toggle="modal" data-bs-target="#EditarAgendamento">
-                                            <i class="fa fa-edit" style="color: #F7F5F2;"></i>
+                                                data-bs-toggle="modal" data-bs-target="#EditarAgendamento" style="color: #EAE7DC;">
+                                            <i class="fa fa-edit"></i>
                                         </button>
                                     </td>
                                     <td class="text-center" style="border: 1px solid #ddd; min-width: 80px;">
                                         <button class="btn btn-default"
                                                 onclick="definirExc(@atendimento.Id, '@atendimento.Nome', '@atendimento.Email', '@atendimento.Telefone', '@atendimento.DataAtendimento', '@atendimento.Horario', '@atendimento.TipoServico', '@atendimento.TipoServico')"
-                                                data-bs-toggle="modal" data-bs-target="#ExcluirAgendamento">
-                                            <i class="fa fa-trash" style="color: #F7F5F2;"></i>
+                                                data-bs-toggle="modal" data-bs-target="#ExcluirAgendamento" style="color: #EAE7DC;">
+                                            <i class="fa fa-trash"></i>
                                         </button>
                                     </td>
                                 </tr>
@@ -431,6 +431,7 @@
             var servico = $('#EdtTipoServico option:selected').val();
             var data;
             var horario;
+
             if (!servico != 0) {
                 alert("Por favor, preencha o campo Tecnica.");
                 return;

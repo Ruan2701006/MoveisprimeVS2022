@@ -3,10 +3,42 @@
 @{
     Layout = "~/Views/Shared/_Layout_Gerenciamento.cshtml";
 }
+<style>
+    /* Estilo para o overlay (fundo escuro) */
+    #overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5); /* Cor escura com transparência */
+        z-index: 9998; /* Colocar abaixo do loader */
+        display: none; /* Inicialmente escondido */
+    }
+
+    /* Estilo para o loader */
+    #loader {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        padding: 15px 30px;
+        background-color: rgba(0, 0, 0, 0.7); /* Fundo escuro para o loader */
+        color: white;
+        border-radius: 5px;
+        font-size: 16px;
+        z-index: 9999; /* Colocar acima do overlay */
+        display: none; /* Inicialmente escondido */
+    }
+</style>
 
 <body>
 
-
+    <!-- Overlay e Loader -->
+    <div id="overlay" style="display: none;"></div>
+    <div id="loader" style="display: none;">
+        <i class="fa fa-spinner fa-spin"></i> Carregando...
+    </div>
     <section class="maneger-page-section">
         <div  class="container page-maneger"> 
 
@@ -25,7 +57,7 @@
                     </div>
                     <div class="col-md-6 text-md-end">
                         <!-- Alteração para "text-md-end" para alinhar à direita apenas em telas médias e maiores -->
-                        <button class="btn btn-danger btn-lg" onclick="" data-bs-toggle="modal" data-bs-target="#InserirServico">
+                        <button class="btn btn-lg" onclick="" data-bs-toggle="modal" data-bs-target="#InserirServico">
                             <i class="fa fa-plus"></i> Adicionar Serviço
                         </button>
                     </div>
@@ -41,8 +73,8 @@
                         <thead>
                             <tr>
                                 <th style="color: #F7F5F2; border: 1px solid #ddd; padding: 8px; width: 50px; position: sticky; top: 0; background-color: #648D78;">#</th>
-                                <th style="color: #F7F5F2; border: 1px solid #ddd; padding: 8px; width: 900px; position: sticky; top: 0; background-color: #648D78;">Nome do Serviço</th>
-                                <th style="color: #F7F5F2; border: 1px solid #ddd; padding: 8px; width: 200px; position: sticky; top: 0; background-color: #648D78;">Valor do Serviço</th>
+                                <th style="color: #F7F5F2; border: 1px solid #ddd; padding: 8px; width: 220px; position: sticky; top: 0; background-color: #648D78;">Nome do Serviço</th>
+                                <th style="color: #F7F5F2; border: 1px solid #ddd; padding: 8px; width: 250px; position: sticky; top: 0; background-color: #648D78;">Valor do Serviço</th>
                                 <th class="editar" style="color: #F7F5F2; border: 1px solid #ddd; padding: 8px; width: 50px; position: sticky; top: 0; background-color: #648D78;">Editar</th>
                                 <th class="excluir" style="color: #F7F5F2; border: 1px solid #ddd; padding: 8px; width: 50px; position: sticky; top: 0; background-color: #648D78;">Excluir</th>
                             </tr>
@@ -425,6 +457,10 @@
                 alert("Por favor, insira um valor válido.");
                 return;
             }
+            // Show the overlay and loader
+            $("#overlay").show();  // Exibir o overlay escuro
+            $("#loader").show();   // Exibir o loader
+
             // Cria o objeto de dados que será enviado
             var dados = {
                 tipoServico: tipoServico,
@@ -438,6 +474,9 @@
                 dataType: "json",              
                 data: dados,
                 success: function (resultado) {
+                    // Hide the overlay and loader after the response
+                    $("#overlay").hide();
+                    $("#loader").hide();
                     // Verifica o sucesso da operação
                     if (resultado.success) {
                         alert(resultado.message);
@@ -455,48 +494,56 @@
         }
 
         function AtualizarServico() {
-            // Coleta os valores dos campos HTML
-            var id = $('#EdtId').val();  // ID do serviço que será atualizado
-            var tipoServico = $('#EdtTipoServico option:selected').text();  // Valor selecionado no dropdown
-            var valor = $('#EdtValor').val();  // Valor do serviço
 
-            // Verificar se os campos obrigatórios estão preenchidos
-            if (tipoServico === "" || tipoServico === "Escolha o tipo de Serviço") {
+            // Obter valores dos campos
+            var id = $('#EdtId').val();
+            var tipoServico = $('#EdtTipoServico option:selected').text();  // Valor do tipo de serviço selecionado
+            var valor = $('#EdtValor').val();  // Valor inserido
+
+            // Validação dos campos
+            if (!id || id === "") {
+                alert("O ID do serviço é obrigatório.");
+                return;  // Para a execução da função se o ID não estiver preenchido
+            }
+
+            if (!tipoServico || tipoServico === "Escolha o serviço") {
                 alert("Por favor, selecione um tipo de serviço.");
-                return;
+                return;  // Para a execução da função se o tipo de serviço não for selecionado
             }
 
-            if (valor === "") {
-                alert("Por favor, insira o valor do serviço.");
-                return;
+            if (!valor || valor.trim() === "") {
+                alert("Por favor, insira um valor para o serviço.");
+                return;  // Para a execução da função se o valor estiver vazio
             }
+            // Show the overlay and loader
+            $("#overlay").show();  // Exibir o overlay escuro
+            $("#loader").show();   // Exibir o loader
 
-            // Cria o objeto de dados que será enviado via AJAX
-            var dados = {
-                id: id,
-                tipoServico: tipoServico,
-                valor: valor
-            };
 
-            // Requisição AJAX para o método AtualizarServico no controller
+            // Fazer a requisição AJAX para atualizar o serviço
             $.ajax({
-                url: '/Servico/AtualizarServico', // URL do método no controlador
-                type: "POST",
-                dataType: "json",
-                data: dados,
-                success: function (resultado) {
-                    // Verifica o sucesso da operação
-                    if (resultado.success) {
-                        alert(resultado.message);  // Exibe mensagem de sucesso
-                        $('#EditarServico').modal('hide');  // Fecha o modal após a atualização
-                        location.reload();  // Recarrega a página para atualizar a lista de serviços
+                url: '/Servico/AtualizarServico',  // Substitua pelo nome real do seu controller
+                type: 'POST',
+                data: {
+                    id: id,
+                    TipoServico: tipoServico,
+                    Valor: valor
+                },
+                success: function (response) {
+                    // Verificar se a atualização foi bem-sucedida
+                    if (response.success) {
+                        // Hide the overlay and loader after the response
+                        $("#overlay").hide();
+                        $("#loader").hide();
+                        alert("Serviço " + tipoServico + " alterado com sucesso!");
+                        $('#EditarServico').modal('hide');
+                        location.reload();  // Opcional: recarrega a página
                     } else {
-                        alert(resultado.message);  // Exibe mensagem de erro
+                        alert(response.message);  // Caso haja erro na resposta
                     }
                 },
                 error: function (xhr, status, error) {
-                    console.error("Erro ao atualizar serviço:", status, error, xhr.responseText);
-                    alert('Erro na requisição AJAX: ' + xhr.responseText);
+                    alert("Ocorreu um erro ao tentar atualizar o serviço: " + error);
                 }
             });
         }

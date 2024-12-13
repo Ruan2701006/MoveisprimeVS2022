@@ -1,20 +1,7 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "C:\\Users\\Aluno Noite\\Downloads\\Ruan-Website\\MoveisprimeVS2022\\",
-  "Documents": [
-    {
-      "AbsoluteMoniker": "D:0:0:{B5A0BD73-ED8F-4D7D-B3F8-3C5EAE2649FE}|MoveisprimeVS.csproj|c:\\users\\aluno noite\\downloads\\ruan-website\\moveisprimevs2022\\views\\agendamento\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{B5A0BD73-ED8F-4D7D-B3F8-3C5EAE2649FE}|MoveisprimeVS.csproj|solutionrelative:views\\agendamento\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B5A0BD73-ED8F-4D7D-B3F8-3C5EAE2649FE}|MoveisprimeVS.csproj|c:\\users\\aluno noite\\downloads\\ruan-website\\moveisprimevs2022\\views\\agendamento\\gerenciamento_agendamento_usuario.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{B5A0BD73-ED8F-4D7D-B3F8-3C5EAE2649FE}|MoveisprimeVS.csproj|solutionrelative:views\\agendamento\\gerenciamento_agendamento_usuario.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B5A0BD73-ED8F-4D7D-B3F8-3C5EAE2649FE}|MoveisprimeVS.csproj|c:\\users\\aluno noite\\downloads\\ruan-website\\moveisprimevs2022\\views\\agendamento\\cadastro_agendamento.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{B5A0BD73-ED8F-4D7D-B3F8-3C5EAE2649FE}|MoveisprimeVS.csproj|solutionrelative:views\\agendamento\\cadastro_agendamento.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    }
-  ],
+  "Documents": [],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
@@ -22,7 +9,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 4,
+          "SelectedChildIndex": -1,
           "Children": [
             {
               "$type": "Bookmark",
@@ -31,45 +18,6 @@
             {
               "$type": "Bookmark",
               "Name": "ST:4:0:{e8034f19-ab72-4f06-83fd-f6832b41aa63}"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "Cadastro_Agendamento.cshtml",
-              "DocumentMoniker": "C:\\Users\\Aluno Noite\\Downloads\\Ruan-Website\\MoveisprimeVS2022\\Views\\Agendamento\\Cadastro_Agendamento.cshtml",
-              "RelativeDocumentMoniker": "Views\\Agendamento\\Cadastro_Agendamento.cshtml",
-              "ToolTip": "C:\\Users\\Aluno Noite\\Downloads\\Ruan-Website\\MoveisprimeVS2022\\Views\\Agendamento\\Cadastro_Agendamento.cshtml",
-              "RelativeToolTip": "Views\\Agendamento\\Cadastro_Agendamento.cshtml",
-              "ViewState": "AQIAALwAAAAAAAAAAAAAAE0BAAAJAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-12-12T20:27:12.769Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "Gerenciamento_Agendamento_Usuario.cshtml",
-              "DocumentMoniker": "C:\\Users\\Aluno Noite\\Downloads\\Ruan-Website\\MoveisprimeVS2022\\Views\\Agendamento\\Gerenciamento_Agendamento_Usuario.cshtml",
-              "RelativeDocumentMoniker": "Views\\Agendamento\\Gerenciamento_Agendamento_Usuario.cshtml",
-              "ToolTip": "C:\\Users\\Aluno Noite\\Downloads\\Ruan-Website\\MoveisprimeVS2022\\Views\\Agendamento\\Gerenciamento_Agendamento_Usuario.cshtml",
-              "RelativeToolTip": "Views\\Agendamento\\Gerenciamento_Agendamento_Usuario.cshtml",
-              "ViewState": "AQIAAJYAAAAAAAAAAAAAAAoCAAANAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-12-12T20:24:38.052Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "Index.cshtml",
-              "DocumentMoniker": "C:\\Users\\Aluno Noite\\Downloads\\Ruan-Website\\MoveisprimeVS2022\\Views\\Agendamento\\Index.cshtml",
-              "RelativeDocumentMoniker": "Views\\Agendamento\\Index.cshtml",
-              "ToolTip": "C:\\Users\\Aluno Noite\\Downloads\\Ruan-Website\\MoveisprimeVS2022\\Views\\Agendamento\\Index.cshtml",
-              "RelativeToolTip": "Views\\Agendamento\\Index.cshtml",
-              "ViewState": "AQIAADYAAAAAAAAAAAAAADgBAAClAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-12-12T20:18:20.156Z",
-              "EditorCaption": ""
             }
           ]
         }
