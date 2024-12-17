@@ -42,11 +42,19 @@ p {
 }
 
 td {
-    color: #070707 !important;
+    color: #648d78 !important;
+    border: 1px solid #ddd;
+    padding: 8px;
 }
 
 th {
-    color: #000000 !important;
+    color: #F7F5F2;
+    border: 1px solid #ddd;
+    padding: 8px;
+    width: 50px;
+    position: sticky;
+    top: 0;
+    background-color: #648D78 !important;
 }
 
 input {
@@ -122,3 +130,28 @@ label {
 }
 
 
+/* Cor de fundo inicial e cor da fonte */
+.btn, .btn-danger {
+    background-color: #648D78; /* Cor de fundo */
+    color: #deeaea; /* Cor da fonte */
+    border: none; /* Remove bordas para um visual mais limpo */
+    transition: background-color 0.3s, color 0.3s; /* Transição suave para o efeito hover */
+}
+
+    /* Efeito de hover - troca as cores */
+    .btn:hover, .btn-danger:hover {
+        background-color: #deeaea !important; /* Cor de fundo invertida */
+        color: #648D78 !important; /* Cor da fonte invertida */
+    }
+
+
+    .btn:focus, .btn-danger:focus {
+        outline: none; /* Remove a borda azul padrão */
+        box-shadow: none; /* Remove qualquer sombra extra */
+    }
+
+/* Se você quiser adicionar um contorno personalizado quando o botão for focado */
+    .btn:focus-visible, .btn-danger:focus-visible {
+        outline: 2px solid #648D78; /* Uma borda mais discreta, mas com a cor da caixa */
+        outline-offset: 2px; /* Adiciona um pequeno espaço entre a borda e o botão */
+    }

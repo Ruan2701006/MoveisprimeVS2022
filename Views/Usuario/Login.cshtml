@@ -126,8 +126,10 @@
 
 
 <!-- JavaScript -->
-    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script> <!-- Adiciona o SweetAlert2 -->
+
 <script>
 
         $(document).ready(function () {
@@ -161,7 +163,6 @@
             // Show the overlay and loader
             $("#overlay").show();  // Exibir o overlay escuro
             $("#loader").show();   // Exibir o loader
-
             $.ajax({
                 type: "POST",
                 url: "/Usuario/VerificarUsuario",
@@ -176,6 +177,7 @@
 
                     } else {
                         Swal.fire({
+                            position: "top-end",
                             icon: 'error',
                             title: 'Erro',
                             text: result.message,
