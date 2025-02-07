@@ -25,33 +25,33 @@ public partial class BdMoveisPrimeContext : DbContext
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see https://go.microsoft.com/fwlink/?LinkId=723263.
-        => optionsBuilder.UseSqlServer("Server=lab205_8\\SQLEXPRESS;Database=bd_MoveisPrime;User Id=admin_Ruan;Password=admin;TrustServerCertificate=true");
+        => optionsBuilder.UseSqlServer("Server=LAB10_33\\SQLEXPRESS;Database=bd_MoveisPrime;User Id=admin;Password=admin123;TrustServerCertificate=true");
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         modelBuilder.Entity<TbAgendamento>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK_Tb_Atendimento");
+            entity.HasKey(e => e.Id).HasName("PK_TbAgendamento");
 
             entity.ToTable("Tb_Agendamento");
 
             entity.Property(e => e.DtHoraAgendamento).HasColumnType("datetime");
-            entity.Property(e => e.FkServicoId).HasColumnName("fk_Servico_ID");
-            entity.Property(e => e.FkUsuarioId).HasColumnName("fk_Usuario_ID");
 
             entity.HasOne(d => d.FkServico).WithMany(p => p.TbAgendamentos)
                 .HasForeignKey(d => d.FkServicoId)
                 .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK_Tb_Atendimento_Tb_Servico");
+                .HasConstraintName("fk_servico_id");
 
             entity.HasOne(d => d.FkUsuario).WithMany(p => p.TbAgendamentos)
                 .HasForeignKey(d => d.FkUsuarioId)
                 .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK_Tb_Atendimento_Tb_Usuario");
+                .HasConstraintName("fk_usuario_id");
         });
 
         modelBuilder.Entity<TbServico>(entity =>
         {
+            entity.HasKey(e => e.Id).HasName("PK_TbServico");
+
             entity.ToTable("Tb_Servico");
 
             entity.Property(e => e.TipoServico)
@@ -62,8 +62,13 @@ public partial class BdMoveisPrimeContext : DbContext
 
         modelBuilder.Entity<TbUsuario>(entity =>
         {
+            entity.HasKey(e => e.Id).HasName("PK_TbUsuario");
+
             entity.ToTable("Tb_Usuario");
 
+            entity.Property(e => e.DataHoraCadastro)
+                .HasDefaultValueSql("(getdate())")
+                .HasColumnType("datetime");
             entity.Property(e => e.Email)
                 .HasMaxLength(50)
                 .IsUnicode(false);
@@ -82,13 +87,16 @@ public partial class BdMoveisPrimeContext : DbContext
         {
             entity
                 .HasNoKey()
-                .ToView("View_Agendamento");
+                .ToView("ViewAgendamento");
 
             entity.Property(e => e.DtHoraAgendamento).HasColumnType("datetime");
             entity.Property(e => e.Email)
                 .HasMaxLength(50)
                 .IsUnicode(false);
             entity.Property(e => e.Nome)
+                .HasMaxLength(50)
+                .IsUnicode(false);
+            entity.Property(e => e.Senha)
                 .HasMaxLength(50)
                 .IsUnicode(false);
             entity.Property(e => e.Telefone)

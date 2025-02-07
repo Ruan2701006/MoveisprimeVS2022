@@ -1,20 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Aluno Noite\\Downloads\\Ruan-Website\\MoveisprimeVS2022\\MoveisprimeVS.csproj": {}
+    "C:\\Users\\aluno.manha\\Documents\\Ruan\\MoveisprimeVS2022\\MoveisprimeVS.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Aluno Noite\\Downloads\\Ruan-Website\\MoveisprimeVS2022\\MoveisprimeVS.csproj": {
+    "C:\\Users\\aluno.manha\\Documents\\Ruan\\MoveisprimeVS2022\\MoveisprimeVS.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Aluno Noite\\Downloads\\Ruan-Website\\MoveisprimeVS2022\\MoveisprimeVS.csproj",
+        "projectUniqueName": "C:\\Users\\aluno.manha\\Documents\\Ruan\\MoveisprimeVS2022\\MoveisprimeVS.csproj",
         "projectName": "MoveisprimeVS",
-        "projectPath": "C:\\Users\\Aluno Noite\\Downloads\\Ruan-Website\\MoveisprimeVS2022\\MoveisprimeVS.csproj",
-        "packagesPath": "C:\\Users\\Aluno Noite\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Aluno Noite\\Downloads\\Ruan-Website\\MoveisprimeVS2022\\obj\\",
+        "projectPath": "C:\\Users\\aluno.manha\\Documents\\Ruan\\MoveisprimeVS2022\\MoveisprimeVS.csproj",
+        "packagesPath": "C:\\Users\\aluno.manha\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\aluno.manha\\Documents\\Ruan\\MoveisprimeVS2022\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\Aluno Noite\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\aluno.manha\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -22,7 +26,6 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -40,35 +43,40 @@
           "enableAudit": "true",
           "auditLevel": "low",
           "auditMode": "direct"
-        }
+        },
+        "SdkAnalysisLevel": "9.0.100"
       },
       "frameworks": {
         "net8.0": {
           "targetAlias": "net8.0",
           "dependencies": {
+            "Highsoft.Web.Mvc": {
+              "target": "Package",
+              "version": "[5.0.14, )"
+            },
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",
-              "version": "[9.0.0, )"
+              "version": "[9.0.1, )"
             },
             "Microsoft.EntityFrameworkCore.Design": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
               "suppressParent": "All",
               "target": "Package",
-              "version": "[9.0.0, )"
+              "version": "[9.0.1, )"
             },
             "Microsoft.EntityFrameworkCore.InMemory": {
               "target": "Package",
-              "version": "[9.0.0, )"
+              "version": "[9.0.1, )"
             },
             "Microsoft.EntityFrameworkCore.SqlServer": {
               "target": "Package",
-              "version": "[9.0.0, )"
+              "version": "[9.0.1, )"
             },
             "Microsoft.EntityFrameworkCore.Tools": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
               "suppressParent": "All",
               "target": "Package",
-              "version": "[9.0.0, )"
+              "version": "[9.0.1, )"
             },
             "Moq": {
               "target": "Package",
@@ -76,7 +84,7 @@
             },
             "xunit": {
               "target": "Package",
-              "version": "[2.9.2, )"
+              "version": "[2.9.3, )"
             }
           },
           "imports": [
@@ -98,7 +106,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.302/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.102/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

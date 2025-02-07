@@ -1,54 +1,64 @@
 using Microsoft.EntityFrameworkCore;
 using MoveisprimeVS.ORM;
 using MoveisprimeVS.Repositorio;
+using SiteAgendamento.Repositorio;
 
 var builder = WebApplication.CreateBuilder(args);
 
-
-// Registrar o DbContext se necessário
+// Configuração do DbContext com a string de conexão
 builder.Services.AddDbContext<BdMoveisPrimeContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
-// Registrar o repositório (UsuarioRepositorio)
-builder.Services.AddScoped<UsuarioR>();  // Ou AddTransient ou AddSingleton dependendo do caso
-// Registrar o repositório (ServicoRepositorio)
-builder.Services.AddScoped<ServicoR>();  // Ou AddTransient ou AddSingleton dependendo do caso
-// Registrar o repositório (AgendamentoRepositorio)
-builder.Services.AddScoped<AgendamentoR>();  // Ou AddTransient ou AddSingleton dependendo do caso
+// Registro dos repositórios
+builder.Services.AddScoped<UsuarioR>();  // Repositório de usuários
+builder.Services.AddScoped<ServicoR>();  // Repositório de serviços
+builder.Services.AddScoped<AgendamentoR>();  // Repositório de agendamentos
+builder.Services.AddScoped<RelatorioR>();  // Repositório de agendamentos
+builder.Services.AddScoped<DashboardRepositorio>();  // Repositório de agendamentos
 
-// Adicionar suporte a sessões
+// Configuração de sessões
 builder.Services.AddSession(options =>
 {
-    options.IdleTimeout = TimeSpan.FromMinutes(30); // Defina o tempo de expiração da sessão
-    options.Cookie.HttpOnly = true; // Torna o cookie acessível apenas via HTTP
+    options.IdleTimeout = TimeSpan.FromMinutes(30); // Tempo de expiração da sessão
+    options.Cookie.HttpOnly = true; // Protege o cookie para ser acessado apenas por HTTP
 });
 
-// Registrar outros serviços, como controllers com views
+// Configuração de controllers com views
 builder.Services.AddControllersWithViews();
+
+// Configuração de autenticação (caso necessário)
+builder.Services.AddAuthentication("CookieAuth")
+    .AddCookie("CookieAuth", options =>
+    {
+        options.Cookie.Name = "YourAppCookie";
+        options.LoginPath = "/Login";  // Defina a rota de login, se necessário
+    });
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
+// Configuração do pipeline de requisições
 if (!app.Environment.IsDevelopment())
 {
-    app.UseExceptionHandler("/Home/Error");
-    // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
-    app.UseHsts();
+    app.UseExceptionHandler("/Home/Error");  // Página de erro personalizada em produção
+    app.UseHsts();  // Força o uso de HTTPS
 }
 
-app.UseHttpsRedirection();
+app.UseHttpsRedirection();  // Redireciona para HTTPS
+app.UseStaticFiles();  // Serve arquivos estáticos (CSS, JS, imagens, etc.)
 
-app.UseStaticFiles();
+app.UseRouting();  // Habilita o roteamento de URLs
 
-// Adicionar o middleware de sessão
+// Adiciona o middleware de sessão
 app.UseSession();
 
-app.UseRouting();
-
+// Autenticação (caso tenha configurado)
+app.UseAuthentication();
 app.UseAuthorization();
 
+// Mapeamento de rotas para os controllers
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
 
+// Inicializa o aplicativo
 app.Run();
